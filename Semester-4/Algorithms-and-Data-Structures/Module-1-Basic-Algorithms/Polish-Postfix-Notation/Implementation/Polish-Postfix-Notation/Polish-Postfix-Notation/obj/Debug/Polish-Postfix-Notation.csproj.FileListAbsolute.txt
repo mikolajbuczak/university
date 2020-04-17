@@ -1,0 +1,6 @@
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Polish-Postfix-Notation\Implementation\Polish-Postfix-Notation\Polish-Postfix-Notation\bin\Debug\Polish-Postfix-Notation.exe.config
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Polish-Postfix-Notation\Implementation\Polish-Postfix-Notation\Polish-Postfix-Notation\bin\Debug\Polish-Postfix-Notation.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Polish-Postfix-Notation\Implementation\Polish-Postfix-Notation\Polish-Postfix-Notation\bin\Debug\Polish-Postfix-Notation.pdb
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Polish-Postfix-Notation\Implementation\Polish-Postfix-Notation\Polish-Postfix-Notation\obj\Debug\Polish-Postfix-Notation.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Polish-Postfix-Notation\Implementation\Polish-Postfix-Notation\Polish-Postfix-Notation\obj\Debug\Polish-Postfix-Notation.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Polish-Postfix-Notation\Implementation\Polish-Postfix-Notation\Polish-Postfix-Notation\obj\Debug\Polish-Postfix-Notation.pdb
