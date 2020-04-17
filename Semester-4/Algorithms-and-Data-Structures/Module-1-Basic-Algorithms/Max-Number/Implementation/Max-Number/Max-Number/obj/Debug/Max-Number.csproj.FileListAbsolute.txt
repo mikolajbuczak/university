@@ -1,0 +1,6 @@
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Max-Number\Implementation\Max-Number\Max-Number\bin\Debug\Max-Number.exe.config
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Max-Number\Implementation\Max-Number\Max-Number\bin\Debug\Max-Number.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Max-Number\Implementation\Max-Number\Max-Number\bin\Debug\Max-Number.pdb
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Max-Number\Implementation\Max-Number\Max-Number\obj\Debug\Max-Number.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Max-Number\Implementation\Max-Number\Max-Number\obj\Debug\Max-Number.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-1-Basic-Algorithms\Max-Number\Implementation\Max-Number\Max-Number\obj\Debug\Max-Number.pdb
