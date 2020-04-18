@@ -1,0 +1,6 @@
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Stack\Implementation\Stack\Stack\bin\Debug\Stack.exe.config
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Stack\Implementation\Stack\Stack\bin\Debug\Stack.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Stack\Implementation\Stack\Stack\bin\Debug\Stack.pdb
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Stack\Implementation\Stack\Stack\obj\Debug\Stack.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Stack\Implementation\Stack\Stack\obj\Debug\Stack.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Stack\Implementation\Stack\Stack\obj\Debug\Stack.pdb
