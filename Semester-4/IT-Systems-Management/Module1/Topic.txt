@@ -1,0 +1,7 @@
+M1.3. 
+
+1.3.a. Przykładowe rozwiązanie informatyczne wspomagające zarządzanie infrastrukturą informatyczną [→https://www.it-man.pl]
+
+1.3.b. Projektowanie sieci komputerowych [→https://www.gns3.com/]
+
+1.3.c. Szyfrowanie nośników danych [→Veracrypt; →BitLocker]
