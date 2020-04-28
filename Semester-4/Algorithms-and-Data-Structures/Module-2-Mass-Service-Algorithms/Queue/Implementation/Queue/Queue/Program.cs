@@ -7,7 +7,6 @@
             var queue = new Queue<int>();
 
             queue.Enqueue(5);
-
             System.Console.WriteLine(queue.IsEmpty());
             System.Console.WriteLine(queue.Peek());
             queue.Enqueue(2);

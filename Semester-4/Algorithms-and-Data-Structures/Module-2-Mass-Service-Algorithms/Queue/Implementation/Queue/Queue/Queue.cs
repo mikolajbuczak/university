@@ -3,13 +3,12 @@
     class Queue <T>
     {
         private readonly static int MAX_SIZE = 1000;
-        private readonly T[] data = new T [MAX_SIZE];
-        private int numberOfElements = 0;
+        private T[] data;
+        private int numberOfElements;
 
         public Queue()
         {
-            for (int i = 0; i < MAX_SIZE; i++)
-                data[i] = default;
+            numberOfElements = 0;
         }
 
         public bool IsEmpty()
@@ -24,35 +23,40 @@
 
         public void Enqueue(T value)
         {
-            try
-            {
-                data[numberOfElements] = value;
-                numberOfElements++;
-            }
-            catch (System.IndexOutOfRangeException)
-            {
-                throw new System.IndexOutOfRangeException("Queue full.");
-            }
+            if (numberOfElements == MAX_SIZE) throw new System.IndexOutOfRangeException("Queue full.");
+
+            T[] newData = new T[numberOfElements + 1];
+
+            for (int i = 0; i < numberOfElements; i++)
+                newData[i] = data[i];
+
+            newData[numberOfElements] = value;
+
+            numberOfElements++;
+
+            data = newData;
         }
 
         public T Dequeue()
         {
             try
             {
-                T first = data[0];
-
-                for (int i = 0; i < numberOfElements; i++)
-                    data[i] = data[i + 1];
+                T returnValue = data[0];
 
                 numberOfElements--;
 
-                data[numberOfElements] = default;
+                T[] newData = new T[numberOfElements];
 
-                return first;
+                for (int i = 0; i < numberOfElements; i++)
+                    newData[i] = data[i + 1];
+
+                data = newData;
+
+                return returnValue;
             }
-            catch(System.IndexOutOfRangeException)
+            catch(System.NullReferenceException)
             {
-                throw new System.IndexOutOfRangeException("Queue empty.");
+                throw new System.NullReferenceException("Queue empty.");
             }
         }
 
@@ -60,11 +64,15 @@
         {
             try
             { 
-                return data[0];
+                return data[numberOfElements - 1];
             }
-            catch(System.IndexOutOfRangeException)
+            catch (System.IndexOutOfRangeException)
             {
                 throw new System.IndexOutOfRangeException("Queue empty.");
+            }
+            catch (System.NullReferenceException)
+            {
+                throw new System.NullReferenceException("Queue empty.");
             }
         }
     }

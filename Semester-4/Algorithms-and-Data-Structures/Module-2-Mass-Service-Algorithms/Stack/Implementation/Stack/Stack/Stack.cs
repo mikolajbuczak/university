@@ -40,14 +40,22 @@
         {
             try
             {
-                T returnValue = data[numberOfElements - 1];
-                data[numberOfElements - 1] = default;
                 numberOfElements--;
+
+                T returnValue = data[numberOfElements];
+
+                T[] newData = new T[numberOfElements];
+
+                for (int i = 0; i < numberOfElements; i++)
+                    newData[i] = data[i];
+
+                data = newData;
+
                 return returnValue;
             }
-            catch (System.IndexOutOfRangeException)
+            catch (System.NullReferenceException)
             {
-                throw new System.IndexOutOfRangeException("Stack empty.");
+                throw new System.NullReferenceException("Stack empty.");
             }
         }
 
@@ -60,6 +68,10 @@
             catch (System.IndexOutOfRangeException)
             {
                 throw new System.IndexOutOfRangeException("Stack empty.");
+            }
+            catch(System.NullReferenceException)
+            {
+                throw new System.NullReferenceException("Stack empty.");
             }
         }
     }
