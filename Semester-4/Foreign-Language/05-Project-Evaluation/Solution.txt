@@ -1,0 +1,59 @@
+Ex. 2 p. 90
+	1. E
+	2. D
+	3. B
+	4. A
+	5. C
+
+Ex. 4 p. 91
+	1. It was set up to pilot a low-energy food production system in a coastal desert region using only seawater, sunshine and nutrients from the sea.
+	2. The only criteria they didn't fulfill was using only the nutrients extracted from the seawater.
+
+Ex. 5 p. 91
+	Criteria:
+		1. The system had to be simple.
+		2. The system needed to use minimal power.
+		3. The system had to rely on seawater and sunshine as input or raw materials for the soil.
+		4. The system needed to be low-cost.
+	Evaluation:
+		1. They were able to design a process that perfectly imitates the water cycle.
+		2. They demonstrated that the system was capable of operating with very little power form outside sources.
+		3. They didn't need to use any fresh water from outside the system on the crops, but it turned out to be impossible to use only nutrients extracted from the seawater.
+		4. They showed they were able to build a glasshouse within per square meter target of 35 Euros.
+	Overall:
+		The only criteria they didn't fulfill was using only the nutrients extracted from the seawater.
+
+Ex. 6 p. 91
+	2. Minimal power had to be used by the system.
+	3. We didn't need to rely on electricity from the grid.
+	4. We shoudn't have used nutrients bought from outside.
+	5. We were obligated to use a generator for the pumps and the fans.
+	6. There was no need to use any fresh water from outside the system.
+
+Ex. 7 p. 91
+	A:
+		1. located
+		2. removes
+		3. using
+	B:
+		4. commencing
+		5. is pumped
+		6. are removed
+	C:
+		7. been cleaned
+		8. is pumped
+		9. containing
+	D:
+		10. containing
+		11. acts
+		12. allowing
+	E:
+		13. been blocked
+		14.containing
+		15. is forced
+		16. flowing
+	F:
+		17. passed
+		18. called
+		19. undergoes
+		20. flowing
