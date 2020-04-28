@@ -3,13 +3,12 @@
     class Stack<T>
     {
         private readonly static int MAX_SIZE = 1000;
-        private readonly T[] data = new T [MAX_SIZE];
-        private int numberOfElements = 0;
+        private T[] data;
+        private int numberOfElements;
 
         public Stack()
         {
-            for (int i = 0; i < MAX_SIZE; i++)
-                data[i] = default;
+            numberOfElements = 0;
         }
 
         public bool IsEmpty()
@@ -24,15 +23,17 @@
 
         public void Push(T value)
         {
-            try
-            {
-                data[numberOfElements] = value;
-                numberOfElements++;
-            }
-            catch (System.IndexOutOfRangeException)
-            {
-                throw new System.IndexOutOfRangeException("Stack full.");
-            }
+            if (numberOfElements == MAX_SIZE) throw new System.IndexOutOfRangeException("Stack full.");
+
+            T[] newData = new T[numberOfElements + 1];
+
+            for (int i = 0; i < numberOfElements; i++)
+                newData[i] = data[i];
+
+            newData[numberOfElements] = value;
+
+            numberOfElements++;
+            data = newData;
         }
 
         public T Pop()
