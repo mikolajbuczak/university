@@ -1,79 +1,58 @@
 ﻿namespace Queue
 {
+    using System;
+    using System.Text;
     class Queue <T>
     {
-        private readonly static int MAX_SIZE = 1000;
         private T[] data;
-        private int numberOfElements;
+        public int Size { get; private set; }
 
         public Queue()
         {
-            numberOfElements = 0;
+            Size = 0;
+            data = new T[Size];
         }
 
         public bool IsEmpty()
         {
-            return numberOfElements == 0;
-        }
-
-        public int Size()
-        {
-            return numberOfElements;
+            return Size == 0;
         }
 
         public void Enqueue(T value)
         {
-            if (numberOfElements == MAX_SIZE) throw new System.IndexOutOfRangeException("Queue full.");
+            Array.Resize(ref data, ++Size);
 
-            T[] newData = new T[numberOfElements + 1];
-
-            for (int i = 0; i < numberOfElements; i++)
-                newData[i] = data[i];
-
-            newData[numberOfElements] = value;
-
-            numberOfElements++;
-
-            data = newData;
+            data[Size - 1] = value;
         }
 
         public T Dequeue()
         {
-            try
-            {
-                T returnValue = data[0];
+            T value = Peek();
+            for (int i = 0; i < Size - 1; i++)
+                data[i] = data[i + 1];
+            Array.Resize(ref data, --Size);
 
-                numberOfElements--;
-
-                T[] newData = new T[numberOfElements];
-
-                for (int i = 0; i < numberOfElements; i++)
-                    newData[i] = data[i + 1];
-
-                data = newData;
-
-                return returnValue;
-            }
-            catch(System.NullReferenceException)
-            {
-                throw new System.NullReferenceException("Queue empty.");
-            }
+            return value;
         }
 
         public T Peek()
         {
-            try
-            { 
-                return data[numberOfElements - 1];
-            }
-            catch (System.IndexOutOfRangeException)
+            if(IsEmpty()) throw new IndexOutOfRangeException("Queue empty.");
+            return data[0];
+        }
+
+        public override string ToString()
+        {
+            if (IsEmpty()) return "Queue empty.";
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(data[0]);
+            for(int i = 1; i < Size; i++)
             {
-                throw new System.IndexOutOfRangeException("Queue empty.");
+                stringBuilder.Append(", ");
+                stringBuilder.Append(data[i]);
             }
-            catch (System.NullReferenceException)
-            {
-                throw new System.NullReferenceException("Queue empty.");
-            }
+            stringBuilder.Append('\n');
+            return stringBuilder.ToString();
         }
     }
 }

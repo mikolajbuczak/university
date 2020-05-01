@@ -1,5 +1,6 @@
 ﻿namespace Stack
 {
+    using System;
     class Program
     {
         static void Main()
@@ -7,15 +8,19 @@
             var stack = new Stack<int>();
 
             stack.Push(5);
-            System.Console.WriteLine(stack.IsEmpty());
-            System.Console.WriteLine(stack.Peek());
             stack.Push(2);
-            System.Console.WriteLine(stack.Pop());
-            System.Console.WriteLine(stack.Peek());
-            System.Console.WriteLine(stack.IsEmpty());
-            System.Console.WriteLine(stack.Pop());
-            System.Console.WriteLine(stack.IsEmpty());
-            System.Console.ReadKey();
+            stack.Push(7);
+            stack.Push(12);
+            stack.Push(99);
+            Console.WriteLine(stack);
+            stack.Pop();
+            stack.Push(13);
+            stack.Push(23);
+            stack.Push(9449);
+            Console.WriteLine(stack);
+            stack.Pop();
+            Console.WriteLine(stack);
+            Console.ReadKey();
         }
     }
 }

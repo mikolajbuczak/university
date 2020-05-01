@@ -1,78 +1,55 @@
 ﻿namespace Stack
 {
+    using System;
+    using System.Text;
     class Stack<T>
     {
-        private readonly static int MAX_SIZE = 1000;
         private T[] data;
-        private int numberOfElements;
+        public int Size { get; private set; }
 
         public Stack()
         {
-            numberOfElements = 0;
+            Size = 0;
+            data = new T[Size];
         }
 
         public bool IsEmpty()
         {
-            return numberOfElements == 0;
-        }
-
-        public int Size()
-        {
-            return numberOfElements;
+            return Size == 0;
         }
 
         public void Push(T value)
         {
-            if (numberOfElements == MAX_SIZE) throw new System.IndexOutOfRangeException("Stack full.");
-
-            T[] newData = new T[numberOfElements + 1];
-
-            for (int i = 0; i < numberOfElements; i++)
-                newData[i] = data[i];
-
-            newData[numberOfElements] = value;
-
-            numberOfElements++;
-            data = newData;
+            Array.Resize(ref data, ++Size);
+            data[Size - 1] = value;
         }
 
         public T Pop()
-        {
-            try
-            {
-                numberOfElements--;
+        {      
+            T value = Peek();
 
-                T returnValue = data[numberOfElements];
+            Array.Resize(ref data, --Size);
 
-                T[] newData = new T[numberOfElements];
-
-                for (int i = 0; i < numberOfElements; i++)
-                    newData[i] = data[i];
-
-                data = newData;
-
-                return returnValue;
-            }
-            catch (System.NullReferenceException)
-            {
-                throw new System.NullReferenceException("Stack empty.");
-            }
+            return value;
         }
 
         public T Peek()
         {
-            try
+            if (IsEmpty()) throw new IndexOutOfRangeException("Stack empty.");
+
+            return data[Size - 1];
+        }
+
+        public override string ToString()
+        {
+            if (IsEmpty()) return "Stack empty.";
+            var stringBuilder = new StringBuilder();
+            for(int i = Size - 1; i >= 0; i--)
             {
-                return data[numberOfElements - 1];
+                stringBuilder.Append(data[i]);
+                stringBuilder.Append('\n');
             }
-            catch (System.IndexOutOfRangeException)
-            {
-                throw new System.IndexOutOfRangeException("Stack empty.");
-            }
-            catch(System.NullReferenceException)
-            {
-                throw new System.NullReferenceException("Stack empty.");
-            }
+            return stringBuilder.ToString();
         }
     }
 }

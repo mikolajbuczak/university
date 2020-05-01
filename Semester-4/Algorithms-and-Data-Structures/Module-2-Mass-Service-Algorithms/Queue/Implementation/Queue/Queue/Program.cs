@@ -1,5 +1,6 @@
 ﻿namespace Queue
 {
+    using System;
     class Program
     {
         static void Main()
@@ -7,15 +8,19 @@
             var queue = new Queue<int>();
 
             queue.Enqueue(5);
-            System.Console.WriteLine(queue.IsEmpty());
-            System.Console.WriteLine(queue.Peek());
             queue.Enqueue(2);
-            System.Console.WriteLine(queue.Dequeue());
-            System.Console.WriteLine(queue.Peek());
-            System.Console.WriteLine(queue.IsEmpty());
-            System.Console.WriteLine(queue.Dequeue());
-
-            System.Console.ReadKey();
+            queue.Enqueue(7);
+            queue.Enqueue(12);
+            queue.Enqueue(99);
+            Console.WriteLine(queue);
+            queue.Dequeue();
+            queue.Enqueue(13);
+            queue.Enqueue(23);
+            queue.Enqueue(9449);
+            Console.WriteLine(queue);
+            queue.Dequeue();
+            Console.WriteLine(queue);
+            Console.ReadKey();
         }
     }
 }
