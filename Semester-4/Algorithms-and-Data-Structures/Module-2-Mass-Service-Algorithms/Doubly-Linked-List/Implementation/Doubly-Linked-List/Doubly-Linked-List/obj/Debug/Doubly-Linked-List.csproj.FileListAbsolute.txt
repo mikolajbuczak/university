@@ -1,0 +1,6 @@
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Doubly-Linked-List\Implementation\Doubly-Linked-List\Doubly-Linked-List\bin\Debug\Doubly-Linked-List.exe.config
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Doubly-Linked-List\Implementation\Doubly-Linked-List\Doubly-Linked-List\bin\Debug\Doubly-Linked-List.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Doubly-Linked-List\Implementation\Doubly-Linked-List\Doubly-Linked-List\bin\Debug\Doubly-Linked-List.pdb
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Doubly-Linked-List\Implementation\Doubly-Linked-List\Doubly-Linked-List\obj\Debug\Doubly-Linked-List.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Doubly-Linked-List\Implementation\Doubly-Linked-List\Doubly-Linked-List\obj\Debug\Doubly-Linked-List.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-2-Mass-Service-Algorithms\Doubly-Linked-List\Implementation\Doubly-Linked-List\Doubly-Linked-List\obj\Debug\Doubly-Linked-List.pdb
