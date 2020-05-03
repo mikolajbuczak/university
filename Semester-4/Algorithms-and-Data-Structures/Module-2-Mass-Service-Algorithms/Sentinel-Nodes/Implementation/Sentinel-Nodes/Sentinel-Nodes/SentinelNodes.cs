@@ -1,13 +1,13 @@
-﻿namespace Linked_List
+﻿namespace Sentinel_Nodes
 {
     using System;
     using System.Text;
-    class LinkedList<T>
+    class SentinelNodes<T>
     {
         private ListElement head;
         public int Size { get; private set; }
 
-        public LinkedList()
+        public SentinelNodes()
         {
             Size = 0;
             head = null;
@@ -17,7 +17,7 @@
         {
             return head == null;
         }
-        
+
         public void AddFirst(T value)
         {
             if (value == null) throw new ArgumentNullException("Value is null.");
@@ -109,13 +109,22 @@
 
         public int Find(T value)
         {
+            AddLast(value);
+            int index = 0;
             ListElement element = head;
-            for (int i = 0; i < Size; i++)
+            while (!element.value.Equals(value))
             {
-                if (element.value.Equals(value)) return i;
                 element = element.next;
+                index++;
             }
-            return -1;
+
+            if (index == (Size - 1))
+            {
+                RemoveAt(Size - 1);
+                return -1;
+            }
+            RemoveAt(Size - 1);
+            return index;
         }
 
         public override string ToString()
@@ -124,7 +133,7 @@
             var stringBuilder = new StringBuilder();
             ListElement element = head;
             int index = 0;
-            while(element != null)
+            while (element != null)
             {
                 stringBuilder.Append($"[{index++}] {element.value}\n");
                 element = element.next;
