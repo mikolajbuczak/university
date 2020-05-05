@@ -1,0 +1,48 @@
+﻿<Window x:Class="AStar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AStar"
+        mc:Ignorable="d"
+        Title="A* Algorithm" Height="685" Width="835"
+        ResizeMode="NoResize" Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="685"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="ImagesGrid" Grid.Column="0" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Button x:Name="EmptyBtn" HorizontalAlignment="Stretch" Height="50" Margin="5" Content="EMPTY" Click="EmptyBtn_Click" IsEnabled="False"/>
+            <Button x:Name="WallBtn" HorizontalAlignment="Stretch" Height="50" Margin="5" Content="WALL" Click="WallBtn_Click"/>
+            <Button x:Name="StartBtn" HorizontalAlignment="Stretch" Height="50" Margin="5" Content="START" Click="StartBtn_Click"/>
+            <Button x:Name="EndBtn" HorizontalAlignment="Stretch" Height="50" Margin="5" Content="FINISH" Click="EndBtn_Click"/>
+            <Button x:Name="AlgorithmBtn" HorizontalAlignment="Stretch" Height="50" Margin="5" Content="ALGORITHM" IsEnabled="False" Click="AlgorithmBtn_Click"/>
+            <Button x:Name="RestartBtn" HorizontalAlignment="Stretch" Height="50" Margin="5" Content="RESTART" Click="RestartBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
