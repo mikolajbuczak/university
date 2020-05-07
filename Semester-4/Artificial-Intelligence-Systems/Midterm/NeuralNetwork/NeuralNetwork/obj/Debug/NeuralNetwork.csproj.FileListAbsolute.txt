@@ -4,3 +4,10 @@ C:\Users\mikol\source\repos\NeuralNetwork\NeuralNetwork\bin\Debug\NeuralNetwork.
 C:\Users\mikol\source\repos\NeuralNetwork\NeuralNetwork\obj\Debug\NeuralNetwork.csprojAssemblyReference.cache
 C:\Users\mikol\source\repos\NeuralNetwork\NeuralNetwork\obj\Debug\NeuralNetwork.exe
 C:\Users\mikol\source\repos\NeuralNetwork\NeuralNetwork\obj\Debug\NeuralNetwork.pdb
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Midterm\NeuralNetwork\NeuralNetwork\bin\Debug\NeuralNetwork.exe.config
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Midterm\NeuralNetwork\NeuralNetwork\bin\Debug\NeuralNetwork.exe
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Midterm\NeuralNetwork\NeuralNetwork\bin\Debug\NeuralNetwork.pdb
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Midterm\NeuralNetwork\NeuralNetwork\obj\Debug\NeuralNetwork.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Midterm\NeuralNetwork\NeuralNetwork\obj\Debug\NeuralNetwork.csproj.CoreCompileInputs.cache
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Midterm\NeuralNetwork\NeuralNetwork\obj\Debug\NeuralNetwork.exe
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Midterm\NeuralNetwork\NeuralNetwork\obj\Debug\NeuralNetwork.pdb
