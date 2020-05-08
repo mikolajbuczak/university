@@ -176,20 +176,46 @@
 
         public void Multiply(Matrix b)
         {
-            for (int i = 0; i < this.numberOfRows; i++)
-                for (int j = 0; j < b.numberOfColumns; j++)
-                    for (int k = 0; k < this.numberOfColumns; k++)
-                        this.values[i, j] += this.values[i, k] * b.values[k, j];
+            for (var i = 0; i < this.numberOfRows; i++)
+                for (var j = 0; j < this.numberOfColumns; j++)
+                    this.values[i, j] *= b.values[i, j];
         }
 
         public static Matrix Multiply(Matrix a, Matrix b)
         {
             Matrix newMatrix = new Matrix(a.numberOfRows, b.numberOfColumns);
-            for (int i = 0; i < newMatrix.numberOfRows; i++)
-                for (int j = 0; j < newMatrix.numberOfColumns; j++)
-                    for (int k = 0; k < a.numberOfColumns; k++)
-                        newMatrix.values[i, j] += a.values[i, k] * b.values[k, j];
+            for (var i = 0; i < a.numberOfRows; i++)
+                for (var j = 0; j < a.numberOfColumns; j++)
+                    newMatrix.values[i, j] = a.values[i, j] * b.values[i, j];
 
+            return newMatrix;
+        }
+
+        public static Matrix Dot(Matrix a, Matrix b)
+        {
+            if (a.numberOfColumns != b.numberOfRows)
+                throw new ArgumentException("Incompatible matrix sizes.");
+
+            var result = new Matrix(a.numberOfRows, b.numberOfColumns);
+            for (var i = 0; i < a.numberOfRows; i++)
+                for (var j = 0; j < b.numberOfColumns; j++)
+                {
+                    double sum = 0;
+                    for (var k = 0; k < a.numberOfColumns; k++)
+                        sum += a.values[i, k] * b.values[k, j];
+                    result.values[i, j] = sum;
+                }
+
+            return result;
+        }
+
+        public Matrix Transpose()
+        {
+            Matrix newMatrix = new Matrix(this.numberOfColumns, this.numberOfRows);
+
+            for (int i = 0; i < this.numberOfRows; i++)
+                for (int j = 0; j < this.numberOfColumns; j++)
+                    newMatrix.values[j, i] = this.values[i, j];
             return newMatrix;
         }
 

@@ -9,11 +9,11 @@
             //Create a neural network
             var neuralNetwork = new NeuralNetwork(2, 2, 1);
 
-            //Initialize default weights between a input layer and a hidden layer
+            //Initialize default weights between an input layer and a hidden layer
             double[,] initialInputHiddenWeights = { { 0.12, 0.12 },
                                                     { 0.10, 0.08 } };
 
-            //Initialize default weights between a input layer and a hidden layer
+            //Initialize default weights between a hidden layer and an output layer
             double[,] initialHiddenOutputWeights = { { 0.14, 0.15 } };
 
             //Set default weights
@@ -28,21 +28,21 @@
             targets.Add(new double[] { 1 });
 
             Random random = new Random();
+
             Console.WriteLine("Started training...");
 
             //Train neural network
             for (int i = 0; i < 1000; i++)
             {
-                Console.WriteLine($"Iteration: {i + 1}");
                 //Pick a random input
-                int index = random.Next(inputs.Count - 1);
+                int index = random.Next(inputs.Count);
                 neuralNetwork.Train(inputs[index], targets[index]);
             }
 
             Console.WriteLine("\nTraining finished...\n");
-    
+
             //Test neural network
-            for(int i = 0; i < inputs.Count; i++)
+            for (int i = 0; i < inputs.Count; i++)
             {
                 double[] guess = neuralNetwork.Guess(inputs[i]);
 

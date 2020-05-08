@@ -41,70 +41,72 @@
             this.weightsHiddenOutput.SetValues(hiddenOutputWeights);
         }
 
-        public double[] Guess(double[] input)
+        public double[] Guess(double[] inputsArray)
         {
             //Change inputs into a Matrix object
-            Matrix inputMatrix = new Matrix(input, Matrix.Orientation.Vertical);
+            var inputs = new Matrix(inputsArray, Matrix.Orientation.Vertical);
 
             //Calculate hidden Layer values
-            var hiddenMatrix = Matrix.Multiply(this.weightsInputHidden, inputMatrix);
-            hiddenMatrix.Add(this.biasHidden);
-            hiddenMatrix.Map(this.Sigmoid);
+            var hiddenInputs = Matrix.Dot(this.weightsInputHidden, inputs);
+            hiddenInputs.Add(this.biasHidden);
+            var hiddenOutputs = Matrix.Map(hiddenInputs, this.Sigmoid);
 
             //Calculate output Layer values
-            var outputMatrix = Matrix.Multiply(this.weightsHiddenOutput, hiddenMatrix);
-            outputMatrix.Add(this.biasOutput);
-            outputMatrix.Map(this.Sigmoid);
+            var outputInputs = Matrix.Dot(this.weightsHiddenOutput, hiddenOutputs);
+            outputInputs.Add(this.biasOutput);
+            var outputs = Matrix.Map(outputInputs, this.Sigmoid);
 
-            return outputMatrix.ToArray();
+            return outputs.ToArray();
         }
 
-        public void Train(double[] inputs, double[] answers)
+        public void Train(double[] inputsArray, double[] answers)
         {
             //Change inputs into a Matrix object
-            var inputMatrix = new Matrix(inputs, Matrix.Orientation.Vertical);
+            var inputs = new Matrix(inputsArray, Matrix.Orientation.Vertical);
 
             //Change desiered outputs into a Matrix object
             var targets = new Matrix(answers, Matrix.Orientation.Vertical);
 
             //Calculate hidden Layer values
-            var hiddenMatrix = Matrix.Multiply(this.weightsInputHidden, inputMatrix);
-            hiddenMatrix.Add(this.biasHidden);
-            hiddenMatrix.Map(this.Sigmoid);
+            var hiddenInputs = Matrix.Dot(this.weightsInputHidden, inputs);
+            hiddenInputs.Add(this.biasHidden);
+            var hiddenOutputs = Matrix.Map(hiddenInputs, this.Sigmoid);
 
             //Calculate output Layer values
-            var outputMatrix = Matrix.Multiply(this.weightsHiddenOutput, hiddenMatrix);
-            outputMatrix.Add(this.biasOutput);
-            outputMatrix.Map(this.Sigmoid);
+            var outputInputs = Matrix.Dot(this.weightsHiddenOutput, hiddenOutputs);
+            outputInputs.Add(this.biasOutput);
+            var outputs = Matrix.Map(outputInputs, this.Sigmoid);
 
             //Calculate errors of the output layer
-            var outputErrors = Matrix.Subtract(targets, outputMatrix);
+            var outputErrors = Matrix.Subtract(targets, outputs);
+
+            //Transpose weightsbetween a hidden layer an an output layer
+            var weightsHiddenOutputTransposed = this.weightsHiddenOutput.Transpose();
+
+            //Calculate errors of the hidden layer
+            var hiddenErrors = Matrix.Dot(weightsHiddenOutputTransposed, outputErrors);
 
             //Calculate gradients of the output layer
-            var outputsGradients = Matrix.Map(outputMatrix, DerivativeSigmoid);
+            var outputsGradients = Matrix.Map(outputs, this.DerivativeSigmoid);
             outputsGradients.Multiply(outputErrors);
             outputsGradients.Multiply(this.learningRate);
 
+            //Calculate gradients of the hidden layer
+            var hiddenGradients = Matrix.Map(hiddenOutputs, this.DerivativeSigmoid);
+            hiddenGradients.Multiply(hiddenErrors);
+            hiddenGradients.Multiply(this.learningRate);
+
             //Calculate deltas of weights between hidden layer and output layer
-            var transposedHiddens = Matrix.Transpose(hiddenMatrix);
-            var weightsHiddenOutputDeltas = Matrix.Multiply(outputsGradients, transposedHiddens);
+            var hiddenOutputsTransposed = hiddenOutputs.Transpose();
+            var weightsHiddenOutputDeltas = Matrix.Dot(outputsGradients, hiddenOutputsTransposed);
 
             //Change weights between hidden layer and output layer
             this.weightsHiddenOutput.Add(weightsHiddenOutputDeltas);
             this.biasOutput.Add(outputsGradients);
 
-            //Calculate errors of the hidden layer
-            var weightsHiddenOutputTrapsosed = Matrix.Transpose(this.weightsHiddenOutput);
-            var hiddenErrors = Matrix.Multiply(weightsHiddenOutputTrapsosed, outputErrors);
-
-            //Calculate gradients of the hidden layer
-            var hiddenGradients = Matrix.Map(hiddenMatrix, DerivativeSigmoid);
-            hiddenGradients.Multiply(hiddenErrors);
-            hiddenGradients.Multiply(this.learningRate);
-
             //Calculate deltas of weights between input layer and hidden layer
-            var transposedInputs = Matrix.Transpose(inputMatrix);
-            var weightsInputHiddenDeltas = Matrix.Multiply(hiddenGradients, transposedInputs);
+            var inputsTransposed = inputs.Transpose();
+            var weightsInputHiddenDeltas = Matrix.Dot(hiddenGradients, inputsTransposed);
 
             //Change weights between input layer and hidden layer
             this.weightsInputHidden.Add(weightsInputHiddenDeltas);
