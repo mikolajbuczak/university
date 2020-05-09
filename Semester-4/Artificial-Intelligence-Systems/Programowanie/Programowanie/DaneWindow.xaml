@@ -1,0 +1,88 @@
+﻿<Window x:Class="Programowanie.DaneWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Programowanie"
+        mc:Ignorable="d"
+        Title="Dane" Height="550" Width="500"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" x:Name="DataGrid"
+                  IsReadOnly="True" Margin="10"
+                  VerticalAlignment="Stretch"
+                  HorizontalAlignment="Stretch"
+                  AutoGenerateColumns="False" 
+                  IsEnabled="False"
+                  CanUserAddRows="False"
+                  RowHeight="30"
+                  FontFamily="Century Gothic"
+                  FontSize="24"
+                  AlternatingRowBackground="LightGray"
+                  HeadersVisibility="None"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  CanUserSortColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding number}"
+                                    Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="OpenBtn" Grid.Row="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Height="35"
+                    Margin="10"
+                    FontFamily="Century Gothic"
+                    FontSize="20"
+                    Content="Wybierz plik" Click="OpenBtn_Click"/>
+            <Button x:Name="SaveBtn" Grid.Row="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Height="35"
+                    Margin="10"
+                    FontFamily="Century Gothic"
+                    FontSize="20"
+                    Content="Zapisz plik"
+                    IsEnabled="False" Click="SaveBtn_Click"
+                    />
+            <ComboBox x:Name="MethodsList"
+                    Grid.Row="2"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Stretch"
+                    VerticalContentAlignment="Center"
+                    Height="40"
+                    FontSize="16"
+                    Margin="10"
+                    IsEnabled="False">
+                <ComboBoxItem Content="TASUJ"/>
+                <ComboBoxItem Content="MIN-MAX"/>
+                <ComboBoxItem Content="MEAN"/>
+                <ComboBoxItem Content="STANDARYZACJA"/>
+            </ComboBox>
+            <Button x:Name="SetBtn" Grid.Row="3"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Height="35"
+                    Margin="10"
+                    FontFamily="Century Gothic"
+                    FontSize="20"
+                    Content="Zastosuj"
+                    IsEnabled="False" Click="SetBtn_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>

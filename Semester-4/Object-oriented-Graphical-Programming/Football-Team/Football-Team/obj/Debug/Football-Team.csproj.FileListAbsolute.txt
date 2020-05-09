@@ -1,0 +1,15 @@
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\bin\Debug\Football-Team.exe.config
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\bin\Debug\Football-Team.exe
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\bin\Debug\Football-Team.pdb
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football-Team.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\MainWindow.g.cs
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\App.g.cs
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football-Team_MarkupCompile.cache
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football-Team_MarkupCompile.lref
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\MainWindow.baml
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football-Team.g.resources
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football_Team.Properties.Resources.resources
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football-Team.csproj.GenerateResource.cache
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football-Team.csproj.CoreCompileInputs.cache
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football-Team.exe
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team\Football-Team\obj\Debug\Football-Team.pdb

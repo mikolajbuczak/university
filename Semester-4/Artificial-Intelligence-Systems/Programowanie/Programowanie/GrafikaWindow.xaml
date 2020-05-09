@@ -1,0 +1,80 @@
+﻿<Window x:Class="Programowanie.GrafikaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Programowanie"
+        mc:Ignorable="d"
+        Title="Grafika" Height="720" Width="920"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="720"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="ImageBox" Grid.Column="0"
+               RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="OpenBtn" Grid.Row="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Height="35"
+                    Margin="10"
+                    FontFamily="Century Gothic"
+                    FontSize="20"
+                    Content="Wybierz plik" Click="OpenBtn_Click"/>
+            <Button x:Name="SavePixelsBtn" Grid.Row="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Height="35"
+                    Margin="10"
+                    FontFamily="Century Gothic"
+                    FontSize="20"
+                    Content="Zapisz piksele"
+                    IsEnabled="False" Click="SavePixelsBtn_Click"
+                    />
+            <Button x:Name="SaveBtn" Grid.Row="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Height="35"
+                    Margin="10"
+                    FontFamily="Century Gothic"
+                    FontSize="20"
+                    Content="Zapisz plik"
+                    IsEnabled="False" Click="SaveBtn_Click"
+                    />
+            <ComboBox x:Name="MethodsList"
+                    Grid.Row="3"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Stretch"
+                    VerticalContentAlignment="Center"
+                    Height="40"
+                    FontSize="15"
+                    Margin="10"
+                    IsEnabled="False">
+                <ComboBoxItem Content="SKALA SZAROŚCI"/>
+                <ComboBoxItem Content="SEPIA"/>
+                <ComboBoxItem Content="ROZMYCIE"/>
+                <ComboBoxItem Content="NEGATYW"/>
+                <ComboBoxItem Content="WYOSTRZENIE"/>
+            </ComboBox>
+            <Button x:Name="SetBtn" Grid.Row="4"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Height="35"
+                    Margin="10"
+                    FontFamily="Century Gothic"
+                    FontSize="20"
+                    Content="Zastosuj"
+                    IsEnabled="False" Click="SetBtn_Click"/>
+        </Grid>
+    </Grid>
+</Window>
