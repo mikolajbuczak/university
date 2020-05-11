@@ -1,0 +1,15 @@
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\bin\Debug\Football-Team-MVVM.exe.config
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\bin\Debug\Football-Team-MVVM.exe
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\bin\Debug\Football-Team-MVVM.pdb
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Views\MainWindow.g.cs
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\App.g.cs
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM_MarkupCompile.cache
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM_MarkupCompile.lref
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Views\MainWindow.baml
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM.g.resources
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football_Team_MVVM.Properties.Resources.resources
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM.csproj.GenerateResource.cache
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM.csproj.CoreCompileInputs.cache
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM.exe
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM.pdb
