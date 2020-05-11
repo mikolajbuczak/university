@@ -1,0 +1,60 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" Height="450" Width="300" WindowStartupLocation="CenterScreen" MinHeight="450" MinWidth="300" Background="DarkGray" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="History_l" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+               VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+               Content="" FontSize="20" Margin="2" Foreground="Gray"/>
+
+        <Label x:Name="Entry_l" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
+               VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+               Content="0" FontSize="36" Margin="2"/>
+
+        <Button x:Name="Negate_btn" Grid.Row="2" Grid.Column="0" Content="&#x00B1;" FontSize="36" Background="LightGray" Margin="1" Click="Negate_Click"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="CE" FontSize="36" Background="LightGray" Margin="1" Click="ClearEntry_Click"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="C" FontSize="36" Background="LightGray" Margin="1" Click="Clear_Click"/>
+        <Button Grid.Row="2" Grid.Column="3" Content="&#x2190;" FontSize="36" Background="LightGray" Margin="1" Click="Backspace_Click"/>
+
+        <Button Grid.Row="3" Grid.Column="0" Content="7" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="8" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="9" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button x:Name="Divide_btn" Grid.Row="3" Grid.Column="3" Content="&#x00F7;" FontSize="36" Background="LightGray" Margin="1" Click="Operator_Click"/>
+
+        <Button Grid.Row="4" Grid.Column="0" Content="4" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="5" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button Grid.Row="4" Grid.Column="2" Content="6" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button x:Name="Multiply_btn" Grid.Row="4" Grid.Column="3" Content="&#x00D7;" FontSize="36" Background="LightGray" Margin="1" Click="Operator_Click"/>
+
+        <Button Grid.Row="5" Grid.Column="0" Content="1" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="2" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button Grid.Row="5" Grid.Column="2" Content="3" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button x:Name="Substract_btn" Grid.Row="5" Grid.Column="3" Content="-" FontSize="36" Background="LightGray" Margin="1" Click="Operator_Click"/>
+
+        <Button x:Name="DecimalSeparator" Grid.Row="6" Grid.Column="0" Content="," FontSize="36" Background="LightGray" Margin="1"  Click="DecimalSeparator_Click"/>
+        <Button Grid.Row="6" Grid.Column="1" Content="0" FontSize="36" Background="LightGray" Margin="1" Click="Digit_Click"/>
+        <Button x:Name="Equals_btn" Grid.Row="6" Grid.Column="2" Content="=" FontSize="36" Background="LightGray" Margin="1" Click="Equals_Click"/>
+        <Button x:Name="Add_btn" Grid.Row="6" Grid.Column="3" Content="+" FontSize="36" Background="LightGray" Margin="1" Click="Operator_Click"/>
+    </Grid>
+</Window>
