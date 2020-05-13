@@ -4,6 +4,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using System.Globalization;
+    using System.Windows.Input;
 
     public partial class MainWindow : Window
     {
@@ -13,7 +14,7 @@
         private const string defaultOperation = "";
 
         string entry;
-        string historyString;
+        string history;
         string lastEntry;
         string operation;
         bool hasSeparator;
@@ -27,10 +28,12 @@
 
             entry = "0";
             lastEntry = defaultLastEntry;
-            historyString = defaultHistory;
+            history = defaultHistory;
             operation = defaultOperation;
             hasSeparator = false;
             toReset = false;
+
+            TextCompositionManager.AddTextInputHandler(this, new TextCompositionEventHandler(OnTextComposition));
 
             UpdateEntry();
             UpdateHistory();
@@ -50,142 +53,53 @@
         private void Digit_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-
-            if (toReset) Reset();
-
-            if (entry == "0") entry = defaultEntry;
-            if (entry.Length < 12) entry += button.Content.ToString();
-            UpdateEntry();
+            AddDigit(button.Content.ToString());
+            Equals_btn.Focus();
         }
 
         private void DecimalSeparator_Click(object sender, RoutedEventArgs e)
         {
-            if (hasSeparator) return;
-            if (entry == defaultEntry) entry = "0";
-            entry += DecimalSeparator.Content.ToString();
-            hasSeparator = true;
-            UpdateEntry();
+            AddSeparator(DecimalSeparator.Content.ToString());
+            Equals_btn.Focus();
         }
 
         private void Backspace_Click(object sender, RoutedEventArgs e)
         {
-            if (toReset) Reset();
-            if (entry.Length < 2)
-            {
-                entry = defaultEntry;
-                UpdateEntry();
-                return;
-            }
-
-            if (entry.EndsWith(DecimalSeparator.Content.ToString())) hasSeparator = false;
-
-            entry = entry.Substring(0, entry.Length - 1);
-            UpdateEntry();
+            Backspace();
+            Equals_btn.Focus();
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             Reset();
+            Equals_btn.Focus();
         }
 
         private void ClearEntry_Click(object sender, RoutedEventArgs e)
         {
-            if (toReset) Reset();
-            entry = defaultEntry;
-
-            hasSeparator = false;
-
-            UpdateEntry();
+            ClearEntry();
+            Equals_btn.Focus();
         }
 
         private void Operator_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
 
-            if (toReset) SaveResult();
+            Operatation(button.Content.ToString());
 
-            if (entry.EndsWith(DecimalSeparator.Content.ToString()))
-            {
-                entry = entry.Substring(0, entry.Length - 1);
-                hasSeparator = false;
-            }
-
-            if (lastEntry == defaultLastEntry)
-            {
-                lastEntry = entry;
-            }
-            else
-            {
-                string result = Calculate();
-                if (!Double.TryParse(result, out double _))
-                {
-                    Error(result);
-                    return;
-                }
-                lastEntry = entry;
-                entry = result;
-            }
-
-            operation = button.Content.ToString();
-            historyString += $"{lastEntry} {operation} ";
-            lastEntry = entry;
-
-            UpdateEntry();
-            UpdateHistory();
-            entry = defaultEntry;
-            hasSeparator = false;
+            Equals_btn.Focus();
         }
 
         private void Equals_Click(object sender, RoutedEventArgs e)
         {
-            if (toReset) SaveResult();
-
-            if (entry.EndsWith(DecimalSeparator.Content.ToString()))
-            {
-                entry = entry.Substring(0, entry.Length - 1);
-                hasSeparator = false;
-            }
-
-            if (entry == defaultEntry) entry = lastEntry;
-
-            historyString += $"{entry} = ";
-
-            if (lastEntry != defaultLastEntry)
-            {
-                string result = Calculate();
-                if (!Double.TryParse(result, out double _))
-                {
-                    Error(result);
-                    return;
-                }
-                entry = result;
-            }
-
-            UpdateEntry();
-            UpdateHistory();
-            lastEntry = entry;
-            entry = defaultEntry;
-            toReset = true;
+            Equals();
+            Equals_btn.Focus();
         }
 
         private void Negate_Click(object sender, RoutedEventArgs e)
         {
-            if (toReset) SaveResult();
-            if (entry == defaultEntry && lastEntry == defaultLastEntry) return;
-            if (entry == defaultEntry && lastEntry != defaultLastEntry)
-            {
-                entry = lastEntry;
-                lastEntry = defaultLastEntry;
-            }
-
-            if (entry.StartsWith("-"))
-            {
-                entry = entry.Substring(1);
-                UpdateEntry();
-                return;
-            }
-            entry = entry.Insert(0, "-");
-            UpdateEntry();
+            Negate();
+            Equals_btn.Focus();
         }
 
         private void UpdateEntry()
@@ -200,7 +114,7 @@
 
         private void UpdateHistory()
         {
-            History_l.Content = historyString;
+            History_l.Content = history;
         }
 
         private string Calculate()
@@ -228,7 +142,7 @@
         {
             entry = defaultEntry;
             lastEntry = defaultLastEntry;
-            historyString = defaultHistory;
+            history = defaultHistory;
             operation = defaultOperation;
             hasSeparator = false;
             toReset = false;
@@ -249,7 +163,7 @@
         {
             entry = lastEntry;
             lastEntry = defaultLastEntry;
-            historyString = defaultHistory;
+            history = defaultHistory;
             operation = defaultOperation;
             hasSeparator = false;
             toReset = false;
@@ -258,7 +172,7 @@
             UpdateHistory();
         }
 
-        public void Error(string message)
+        private void Error(string message)
         {
             entry = message;
             Entry_l.Content = entry;
@@ -272,6 +186,179 @@
             Negate_btn.IsEnabled = false;
             DecimalSeparator.IsEnabled = false;
             Equals_btn.IsEnabled = false;
+        }
+
+        private void AddDigit(string digit)
+        {
+            if (toReset) Reset();
+
+            if (entry == "0") entry = defaultEntry;
+            if (entry.Length < 12) entry += digit;
+            UpdateEntry();
+        }
+
+        private void AddSeparator(string separator)
+        {
+            if (toReset) Reset();
+            if (hasSeparator) return;
+            if (entry == defaultEntry) entry = "0";
+            entry += DecimalSeparator.Content.ToString();
+            hasSeparator = true;
+            UpdateEntry();
+        }
+
+        private void Backspace()
+        {
+            if (toReset) Reset();
+            if (entry.Length < 2)
+            {
+                entry = defaultEntry;
+                UpdateEntry();
+                return;
+            }
+
+            if (entry.EndsWith(DecimalSeparator.Content.ToString())) hasSeparator = false;
+
+            entry = entry.Substring(0, entry.Length - 1);
+            UpdateEntry();
+        }
+
+        private void Operatation(string op)
+        {
+            if (toReset) SaveResult();
+
+            if((entry == defaultEntry || entry == "0") && lastEntry == defaultLastEntry) return;
+
+            if (Double.Parse(entry) == 0) entry = "0";
+            if(entry == defaultEntry)
+            {
+                operation = op;
+                history = history.Substring(0, history.Length - 2);
+                history += $"{operation} ";
+                UpdateHistory();
+                return;
+            }
+
+            if (entry.EndsWith(DecimalSeparator.Content.ToString()))
+            {
+                entry = entry.Substring(0, entry.Length - 1);
+                hasSeparator = false;
+            }
+
+            if (lastEntry == defaultLastEntry)
+            {
+                lastEntry = entry;
+            }
+            else
+            {
+                string result = Calculate();
+                if (!Double.TryParse(result, out _))
+                {
+                    Error(result);
+                    return;
+                }
+                lastEntry = entry;
+                entry = result;
+            }
+
+            operation = op;
+            history += $"{lastEntry} {operation} ";
+            lastEntry = entry;
+
+            UpdateEntry();
+            UpdateHistory();
+            entry = defaultEntry;
+            hasSeparator = false;
+        }
+
+        private void Equals()
+        {
+            if (toReset) SaveResult();
+
+            if (entry.EndsWith(DecimalSeparator.Content.ToString()))
+            {
+                entry = entry.Substring(0, entry.Length - 1);
+                hasSeparator = false;
+            }
+
+            if (entry == defaultEntry) entry = lastEntry;
+
+            history += $"{entry} = ";
+
+            if (lastEntry != defaultLastEntry)
+            {
+                string result = Calculate();
+                if (!Double.TryParse(result, out double _))
+                {
+                    Error(result);
+                    return;
+                }
+                entry = result;
+            }
+
+            UpdateEntry();
+            UpdateHistory();
+            lastEntry = entry;
+            entry = defaultEntry;
+            toReset = true;
+        }
+
+        private void Negate()
+        {
+            if (toReset) SaveResult();
+            if ((entry == defaultEntry || entry == "0") && lastEntry == defaultLastEntry) return;
+            if (entry == defaultEntry && lastEntry != defaultLastEntry)
+            {
+                entry = lastEntry;
+                lastEntry = defaultLastEntry;
+            }
+
+            if (entry.StartsWith("-"))
+            {
+                entry = entry.Substring(1);
+                UpdateEntry();
+                return;
+            }
+            entry = entry.Insert(0, "-");
+            UpdateEntry();
+        }
+
+        private void ClearEntry()
+        {
+            if (toReset) Reset();
+            entry = defaultEntry;
+
+            hasSeparator = false;
+
+            UpdateEntry();
+        }
+
+        private void OnTextComposition(object sender, TextCompositionEventArgs e)
+        {
+            string text = e.Text;
+            if (int.TryParse(text, out _)) AddDigit(text);
+            else if (text == "\b") Backspace();
+            else if (text == "\u001b") Reset();
+            if (!Add_btn.IsEnabled) return;
+            if (text == DecimalSeparator.Content.ToString()) AddSeparator(text);
+            else if (text == "/") Operatation("\u00F7");
+            else if (text == "*") Operatation("\u00D7");
+            else if (text == "-" || text == "+") Operatation(text);
+            else if (text == "=" || text == "\r") Equals();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Delete:
+                    ClearEntry();
+                    break;
+                case Key.F9:
+                    if (!Add_btn.IsEnabled) return;
+                    Negate();
+                    break;
+            }
         }
     }
 }

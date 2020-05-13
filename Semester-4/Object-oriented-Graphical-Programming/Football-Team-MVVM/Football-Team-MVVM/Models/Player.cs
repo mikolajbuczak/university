@@ -48,13 +48,17 @@
             this.Weight = player.Weight;
         }
 
+        public override string ToString()
+        {
+            return $"{this.FirstName} {this.LastName} -> Wiek: {this.Age}, Waga: {this.Weight}kg";
+        }
+
         #region Properties
         public string FirstName
         {
             get => this.firstName;
             set
             {
-                if (value == String.Empty) throw new Exception("First name cannot be an empty string.");
                 this.firstName = value;
             }
         }
@@ -63,7 +67,6 @@
             get => this.lastName;
             set
             {
-                if (value == String.Empty) throw new Exception("Last name cannot be an empty string.");
                 this.lastName = value;
             }
         }
@@ -72,7 +75,6 @@
             get => this.age;
             set
             {
-                if (value < 18 || value > 55) throw new Exception("Age has to be within the range from 18 to 55.");
                 this.age = value;
             }
         }
@@ -81,7 +83,6 @@
             get => this.weight;
             set
             {
-                if (value < 50.0 || value > 100.0) throw new Exception("Weight has to be withing the range from 50 to 100 kilograms.");
                 this.weight = value;
             }
         }

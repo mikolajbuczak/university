@@ -3,10 +3,71 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:Football_Team_MVVM"
+        xmlns:vm="clr-namespace:Football_Team_MVVM.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Width="800" Height="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <vm:DisplayViewModel x:Key="displayViewModel"/>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource displayViewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Content="Imię:" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <Label Grid.Column="0" Grid.Row="1" Content="Nazwisko:" Margin="5" VerticalAlignment="Center"  HorizontalAlignment="Right"></Label>
+            <Label Grid.Column="0" Grid.Row="2" Content="Wiek:" Margin="5" VerticalAlignment="Center"  HorizontalAlignment="Right"></Label>
+            <Label Grid.Column="0" Grid.Row="3" Content="Waga:" Margin="5" VerticalAlignment="Center"  HorizontalAlignment="Right"></Label>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=CurrentFirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" Margin="5">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="GotFocus">
+                        <i:InvokeCommandAction Command="{Binding ClearFirstName}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=CurrentLastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" Margin="5">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="GotFocus">
+                        <i:InvokeCommandAction Command="{Binding ClearLastName}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <ComboBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Width="50" ItemsSource="{Binding Path=Ages}" SelectedValue="{Binding Path=CurrentAge}" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Center" SelectedIndex="0" Margin="5" ScrollViewer.CanContentScroll="False"/>
+            <Slider x:Name="Weight_s" Grid.Column="1" Grid.Row="3" Minimum="40" Maximum="100" Value="{Binding Path=CurrentWeight, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsSnapToTickEnabled="True" TickFrequency="0.1" SmallChange="0.1" LargeChange="1" AutoToolTipPrecision="1" Margin="5"/>
+            <TextBlock Grid.Column="2" Grid.Row="3" Text="{Binding Path=Value, ElementName=Weight_s, StringFormat={}{0:#.0}kg}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+            <Button Grid.ColumnSpan="3"  Grid.Row="4" Content="Dodaj" Width="100" VerticalAlignment="Stretch" Margin="5" Command="{Binding AddPlayer}"/>
+            <Button Grid.ColumnSpan="3"  Grid.Row="5" Content="Modyfikuj" Width="100" VerticalAlignment="Stretch" Margin="5"/>
+            <Button Grid.ColumnSpan="3"  Grid.Row="6" Content="Usuń" Width="100" VerticalAlignment="Stretch" Margin="5"  Command="{Binding DeletePlayer}"/>
+        </Grid>
+        <ListView Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Players}" SelectedIndex="{Binding CurrentIndex, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Info}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
