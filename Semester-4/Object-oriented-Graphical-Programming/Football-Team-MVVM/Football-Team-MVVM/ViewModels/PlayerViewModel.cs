@@ -5,7 +5,7 @@
     using System;
     class PlayerViewModel : ViewModelBase
     {
-        Player player = null;
+        private Player player = null;
 
         public PlayerViewModel(Player player)
         {
@@ -30,7 +30,7 @@
             get => player.LastName;
             set
             {
-                player.FirstName = value;
+                player.LastName = value;
                 OnPropertyChanged(nameof(LastName));
             }
         }
@@ -51,10 +51,6 @@
                 player.Weight = value;
                 OnPropertyChanged(nameof(Weight));
             }
-        }
-        public string Info
-        {
-            get => this.ToString();
         }
 
         public override string ToString()

@@ -7,13 +7,13 @@
         xmlns:local="clr-namespace:Football_Team_MVVM"
         xmlns:vm="clr-namespace:Football_Team_MVVM.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Width="800" Height="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Drużyna" Width="800" Height="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <vm:DisplayViewModel x:Key="displayViewModel"/>
     </Window.Resources>
 
-    <Grid DataContext="{StaticResource displayViewModel}">
+    <Grid x:Name="MainGrid" DataContext="{StaticResource displayViewModel}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.7*"/>
             <ColumnDefinition/>
@@ -43,12 +43,18 @@
                     <i:EventTrigger EventName="GotFocus">
                         <i:InvokeCommandAction Command="{Binding ClearFirstName}"/>
                     </i:EventTrigger>
+                    <i:EventTrigger EventName="LostFocus">
+                        <i:InvokeCommandAction Command="{Binding SetDefaultFirstName}"/>
+                    </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBox>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=CurrentLastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" Margin="5">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus">
                         <i:InvokeCommandAction Command="{Binding ClearLastName}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="LostFocus">
+                        <i:InvokeCommandAction Command ="{Binding SetDefaultLastName}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBox>
@@ -57,17 +63,31 @@
             <TextBlock Grid.Column="2" Grid.Row="3" Text="{Binding Path=Value, ElementName=Weight_s, StringFormat={}{0:#.0}kg}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
             <Button Grid.ColumnSpan="3"  Grid.Row="4" Content="Dodaj" Width="100" VerticalAlignment="Stretch" Margin="5" Command="{Binding AddPlayer}"/>
-            <Button Grid.ColumnSpan="3"  Grid.Row="5" Content="Modyfikuj" Width="100" VerticalAlignment="Stretch" Margin="5"/>
+            <Button Grid.ColumnSpan="3"  Grid.Row="5" Content="Modyfikuj" Width="100" VerticalAlignment="Stretch" Margin="5" Command="{Binding ModifyPlayer}"/>
             <Button Grid.ColumnSpan="3"  Grid.Row="6" Content="Usuń" Width="100" VerticalAlignment="Stretch" Margin="5"  Command="{Binding DeletePlayer}"/>
         </Grid>
-        <ListView Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Players}" SelectedIndex="{Binding CurrentIndex, Mode=TwoWay}">
+        <ListView Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Players}" SelectedIndex="{Binding CurrentIndex, Mode=TwoWay}" SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Info}"/>
+                        <TextBlock Text="{Binding FirstName}" Margin="2"/>
+                        <TextBlock Text="{Binding LastName}" Margin="2"/>
+                        <TextBlock Text="{Binding Age, StringFormat={} -> Wiek: {0}}" Margin="2"/>
+                        <TextBlock Text="{Binding Weight, StringFormat={} Waga: {0:#.0}kg}" Margin="2"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding LoadPlayer}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </ListView>
     </Grid>
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding ElementName=MainGrid, Path=DataContext.SaveTeam}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 </Window>

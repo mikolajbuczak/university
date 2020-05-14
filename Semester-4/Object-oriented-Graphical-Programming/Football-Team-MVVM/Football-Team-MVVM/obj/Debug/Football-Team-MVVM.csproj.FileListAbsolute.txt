@@ -19,3 +19,5 @@ E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-T
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\bin\Debug\Microsoft.Expression.Interactions.xml
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\bin\Debug\System.Windows.Interactivity.xml
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\obj\Debug\Football-Team-MVVM.csproj.CopyComplete
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\bin\Debug\Newtonsoft.Json.dll
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Football-Team-MVVM\Football-Team-MVVM\bin\Debug\Newtonsoft.Json.xml
