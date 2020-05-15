@@ -229,7 +229,8 @@
 
             if((entry == defaultEntry || entry == "0") && lastEntry == defaultLastEntry) return;
 
-            if (Double.Parse(entry) == 0) entry = "0";
+            Double.TryParse(entry, out double val);
+            if (val == 0) entry = "0";
             if(entry == defaultEntry)
             {
                 operation = op;
