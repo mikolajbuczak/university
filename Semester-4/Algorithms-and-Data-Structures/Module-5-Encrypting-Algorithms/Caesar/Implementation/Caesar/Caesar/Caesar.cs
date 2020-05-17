@@ -13,7 +13,7 @@
             {
                 if (!char.IsLetter(text[i])) continue;
                 char firstLetterofAlphabet = char.IsUpper(text[i]) ? 'A' : 'a';
-                result[i] =  (char)((((text[i] + shift) - firstLetterofAlphabet) % 26) + firstLetterofAlphabet);
+                result[i] =  (char)((((text[i] + shift) - firstLetterofAlphabet) % alphabetLength) + firstLetterofAlphabet);
             }
 
             return new string(result);
