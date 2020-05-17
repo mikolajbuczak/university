@@ -1,0 +1,7 @@
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Boyer-Moore\Implementation\Boyer-Moore\Boyer-Moore\bin\Debug\Boyer-Moore.exe.config
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Boyer-Moore\Implementation\Boyer-Moore\Boyer-Moore\bin\Debug\Boyer-Moore.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Boyer-Moore\Implementation\Boyer-Moore\Boyer-Moore\bin\Debug\Boyer-Moore.pdb
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Boyer-Moore\Implementation\Boyer-Moore\Boyer-Moore\obj\Debug\Boyer-Moore.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Boyer-Moore\Implementation\Boyer-Moore\Boyer-Moore\obj\Debug\Boyer-Moore.csproj.CoreCompileInputs.cache
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Boyer-Moore\Implementation\Boyer-Moore\Boyer-Moore\obj\Debug\Boyer-Moore.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Boyer-Moore\Implementation\Boyer-Moore\Boyer-Moore\obj\Debug\Boyer-Moore.pdb

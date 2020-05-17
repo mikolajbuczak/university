@@ -1,0 +1,7 @@
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Naive\Implementation\Naive\Naive\bin\Debug\Naive.exe.config
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Naive\Implementation\Naive\Naive\bin\Debug\Naive.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Naive\Implementation\Naive\Naive\bin\Debug\Naive.pdb
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Naive\Implementation\Naive\Naive\obj\Debug\Naive.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Naive\Implementation\Naive\Naive\obj\Debug\Naive.csproj.CoreCompileInputs.cache
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Naive\Implementation\Naive\Naive\obj\Debug\Naive.exe
+E:\GitHub\University\Semester-4\Algorithms-and-Data-Structures\Module-4-Pattern-Finding\Naive\Implementation\Naive\Naive\obj\Debug\Naive.pdb
