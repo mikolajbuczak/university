@@ -3,8 +3,8 @@
     using System;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Globalization;
     using System.Windows.Input;
+    using System.Threading;
 
     public partial class MainWindow : Window
     {
@@ -41,8 +41,7 @@
 
         private static string DetectDecimalSeparator()
         {
-            NumberFormatInfo culture = new NumberFormatInfo();
-            return culture.NumberDecimalSeparator;
+            return Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator;
         }
 
         private void SetDecimalSeparator(string separator)
