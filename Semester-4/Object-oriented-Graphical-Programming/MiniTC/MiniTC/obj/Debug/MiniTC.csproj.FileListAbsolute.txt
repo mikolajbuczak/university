@@ -8,7 +8,6 @@ E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\Min
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC_MarkupCompile.lref
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\Views\MainWindow.baml
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.g.resources
-E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.Properties.Resources.resources
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.csproj.GenerateResource.cache
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.csproj.CoreCompileInputs.cache
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.exe
@@ -19,3 +18,9 @@ E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\Min
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\bin\Debug\System.Windows.Interactivity.xml
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.csproj.CopyComplete
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.Resources.Resources.resources
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\CustomControls\_PanelTC\PanelTC.g.cs
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\CustomControls\_PanelTC\PanelTC.baml
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.CustomControls._PanelTC.Resources.Resources.resources
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\CustomControls\_PanelTC\ListboxItem.g.cs
+E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\CustomControls\_PanelTC\ListboxItem.baml

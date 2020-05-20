@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="MiniTC.CustomControls._PanelTC.PanelTC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MiniTC.CustomControls._PanelTC"
+             xmlns:resources="clr-namespace:MiniTC.CustomControls._PanelTC.Resources"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="300" x:Name="Panel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0, 5">
+            <TextBox IsEnabled="False" IsReadOnly="True" Width="200" Text="{Binding ElementName=Panel, Path=CurrentPath}"/>
+            <Label Content="{x:Static resources:Resources.PathLabelContent}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0, 5">
+            <ComboBox Width="60" SelectedItem="{Binding ElementName=Panel, Path=CurrentDrive}" ItemsSource="{Binding ElementName=Panel, Path=AvailableDrives}"/>
+            <Label Content="{x:Static resources:Resources.DriveLabelContent}"/>
+        </StackPanel>
+        <ListBox ItemsSource="{Binding ElementName=Panel, Path=CurrentPathContents}" SelectedItem="{Binding ElementName=Panel, Path=SelectedEntry}" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>
