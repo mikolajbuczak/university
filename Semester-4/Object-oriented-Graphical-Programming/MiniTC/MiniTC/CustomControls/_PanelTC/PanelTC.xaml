@@ -14,19 +14,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0, 5">
-            <TextBox IsEnabled="False" IsReadOnly="True" Width="200" Text="{Binding ElementName=Panel, Path=CurrentPath}"/>
-            <Label Content="{x:Static resources:Resources.PathLabelContent}"/>
+            <TextBox IsEnabled="False" IsReadOnly="True" Width="200" FlowDirection="LeftToRight" Text="{Binding Path=CurrentPath}"/>
+            <Label Content="{x:Static resources:Resources.PathLabelContent}" FlowDirection="LeftToRight"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0, 5">
-            <ComboBox Width="60" SelectedItem="{Binding ElementName=Panel, Path=CurrentDrive}" ItemsSource="{Binding ElementName=Panel, Path=AvailableDrives}"/>
-            <Label Content="{x:Static resources:Resources.DriveLabelContent}"/>
+            <ComboBox Width="60" SelectedItem="{Binding ElementName=Panel, Path=CurrentDrive}" ItemsSource="{Binding ElementName=Panel, Path=AvailableDrives}" FlowDirection="LeftToRight" SelectionChanged="ComboBox_SelectionChanged"/>
+            <Label Content="{x:Static resources:Resources.DriveLabelContent}" FlowDirection="LeftToRight"/>
         </StackPanel>
-        <ListBox ItemsSource="{Binding ElementName=Panel, Path=CurrentPathContents}" SelectedItem="{Binding ElementName=Panel, Path=SelectedEntry}" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListBox ItemsSource="{Binding ElementName=Panel, Path=CurrentPathContents}" SelectedItem="{Binding ElementName=Panel, Path=SelectedEntry}" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseLeftButtonUp="ListBox_MouseLeftButtonUp"/>
     </Grid>
 </UserControl>

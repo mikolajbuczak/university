@@ -22,5 +22,3 @@ E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\Min
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\CustomControls\_PanelTC\PanelTC.g.cs
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\CustomControls\_PanelTC\PanelTC.baml
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\MiniTC.CustomControls._PanelTC.Resources.Resources.resources
-E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\CustomControls\_PanelTC\ListboxItem.g.cs
-E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\MiniTC\MiniTC\obj\Debug\CustomControls\_PanelTC\ListboxItem.baml

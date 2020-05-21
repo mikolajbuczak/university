@@ -1,0 +1,9 @@
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\bin\Debug\Mutual-Friends.exe.config
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\bin\Debug\Mutual-Friends.exe
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\bin\Debug\Mutual-Friends.pdb
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\obj\Debug\Mutual-Friends.csprojAssemblyReference.cache
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\obj\Debug\Mutual-Friends.csproj.CoreCompileInputs.cache
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\obj\Debug\Mutual-Friends.exe
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\obj\Debug\Mutual-Friends.pdb
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\obj\Debug\Mutual_Friends.Properties.Resources.resources
+C:\Users\mikol\source\repos\Mutual-Friends\Mutual-Friends\obj\Debug\Mutual-Friends.csproj.GenerateResource.cache
