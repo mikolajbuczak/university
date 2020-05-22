@@ -13,7 +13,7 @@
         <vm:MainVM x:Key="mainVM"/>
     </Window.Resources>
 
-    <Grid>
+    <Grid x:Name="MainGrid" DataContext="{StaticResource mainVM}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -22,8 +22,16 @@
             <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <controls:PanelTC Grid.Column="0" Grid.Row="0" Margin="10, 0"/>
-        <controls:PanelTC Grid.Column="1" Grid.Row="0" Margin="10, 0"/>
+        <controls:PanelTC Grid.Column="0" Grid.Row="0" Margin="10, 0"     CurrentPath="{Binding Path=CurrentLeftPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                      AvailableDrives="{Binding Path=Drives, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                         CurrentDrive="{Binding Path=CurrentLeftDriveIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                  CurrentPathContents="{Binding Path=CurrentLeftContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                            ListClick="{Binding Path=}"/>
+        
+        <controls:PanelTC Grid.Column="1" Grid.Row="0" Margin="10, 0"     CurrentPath="{Binding Path=CurrentRightPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                      AvailableDrives="{Binding Path=Drives, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                         CurrentDrive="{Binding Path=CurrentRightDriveIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                  CurrentPathContents="{Binding Path=CurrentRightContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.ColumnSpan="2" Grid.Row="1" Width="100" Height="30" Margin="5" Content="{x:Static resources:Resources.CopyButtonContent}"/>
     </Grid>
 </Window>

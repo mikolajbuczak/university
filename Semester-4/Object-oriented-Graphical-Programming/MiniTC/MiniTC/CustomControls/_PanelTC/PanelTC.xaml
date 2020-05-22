@@ -14,13 +14,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0, 5">
-            <TextBox IsEnabled="False" IsReadOnly="True" Width="200" FlowDirection="LeftToRight" Text="{Binding Path=CurrentPath}"/>
+            <TextBox IsEnabled="False" IsReadOnly="True" Width="200" VerticalContentAlignment="Center" FlowDirection="LeftToRight" Text="{Binding ElementName=Panel, Path=CurrentPath, Mode=TwoWay}"/>
             <Label Content="{x:Static resources:Resources.PathLabelContent}" FlowDirection="LeftToRight"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0, 5">
-            <ComboBox Width="60" SelectedItem="{Binding ElementName=Panel, Path=CurrentDrive}" ItemsSource="{Binding ElementName=Panel, Path=AvailableDrives}" FlowDirection="LeftToRight" SelectionChanged="ComboBox_SelectionChanged"/>
+            <ComboBox Width="60" VerticalContentAlignment="Center" SelectedIndex="{Binding ElementName=Panel, Path=CurrentDrive, Mode=TwoWay}" ItemsSource="{Binding ElementName=Panel, Path=AvailableDrives, Mode=TwoWay}" FlowDirection="LeftToRight"/>
             <Label Content="{x:Static resources:Resources.DriveLabelContent}" FlowDirection="LeftToRight"/>
         </StackPanel>
-        <ListBox ItemsSource="{Binding ElementName=Panel, Path=CurrentPathContents}" SelectedItem="{Binding ElementName=Panel, Path=SelectedEntry}" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseLeftButtonUp="ListBox_MouseLeftButtonUp"/>
+        <ListBox ItemsSource="{Binding ElementName=Panel, Path=CurrentPathContents, Mode=TwoWay}" SelectedItem="{Binding ElementName=Panel, Path=SelectedEntry, Mode=TwoWay}" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
     </Grid>
 </UserControl>
