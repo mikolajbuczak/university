@@ -343,12 +343,12 @@
 
         #region Randomization
 
-        public void Randomize()
-        {
-            for (int i = 0; i < rows; i++)
-                for (int j = 0; j < cols; j++)
-                    values[i, j] = (decimal)random.NextDouble();
-        }
+        //public void Randomize()
+        //{
+        //    for (int i = 0; i < rows; i++)
+        //        for (int j = 0; j < cols; j++)
+        //            values[i, j] = (decimal)random.NextDouble();
+        //}
 
         public void Randomize(decimal upperBound)
         {
@@ -476,7 +476,7 @@
         {
             Matrix matrix = new Matrix(1, array.Length);
             for (int i = 0; i < matrix.cols; i++)
-                matrix.values[i, j] = array[i, j] * number;
+                matrix.values[0, i] = array[i] * number;
             return matrix;
         }
 
