@@ -8,17 +8,19 @@
     using System.Threading;
     using System.Globalization;
 
-
     public partial class MainWindow : Window
     {
         public string file = @"Data.csv";
-        public decimal minTemp;
-        public decimal maxTemp;
-        public decimal minP;
-        public decimal maxP;
+        public double minTemp;
+        public double maxTemp;
+        public double minP;
+        public double maxP;
         public int maxIndex;
-        List<decimal[]> variablesList = new List<decimal[]>();
-        List<string> datesList = new List<string>();
+        List<double[]> variablesList = new List<double[]>();
+        List<DateTime> datesList = new List<DateTime>();
+
+        Network neuralNetwork;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,35 +42,58 @@
             Rain_tb.Visibility = Visibility.Visible;
             Cloud_tb.Visibility = Visibility.Visible;
 
-            //TODO: calculate index based on picked date
+            //Calculate index based on picked date
             DateTime selectedDate = (DateTime)Date_pick.SelectedDate;
-            string temp = selectedDate.ToString("dd.MM.yyyy");
 
-            bool pickedDateinList = datesList.Contains(temp);
-            if(!pickedDateinList)
+            bool pickedDateinList = datesList.Contains(selectedDate);
+
+            double[] result = null;
+
+            if (!pickedDateinList)
             {
-                for(DateTime i = Convert.ToDateTime(datesList[0]).AddDays(1); i <= selectedDate; i = i.AddDays(1))
+                //07.04.2016
+                //04.04.2016, 05.04.2016, 06.04.2016
+                for(DateTime i = datesList[0].AddDays(1); i <= selectedDate; i = i.AddDays(1))
                 {
-                    //For each date proccess 7 earlier days, neuralNetwork must save results to file to add each result, to process next day forecast
+                    int index = 0;
+
+                    double[] inputs = new double[35];
+
+                    variablesList[index].CopyTo(inputs, 0);
+                    variablesList[index + 1].CopyTo(inputs, variablesList[index].Length);
+                    variablesList[index + 2].CopyTo(inputs, variablesList[index].Length + variablesList[index + 1].Length);
+                    variablesList[index + 3].CopyTo(inputs, variablesList[index].Length + variablesList[index + 2].Length + variablesList[index + 3].Length);
+                    variablesList[index + 4].CopyTo(inputs, variablesList[index].Length + variablesList[index + 2].Length + variablesList[index + 3].Length + variablesList[index + 4].Length);
+                    variablesList[index + 5].CopyTo(inputs, variablesList[index].Length + variablesList[index + 2].Length + variablesList[index + 3].Length + variablesList[index + 4].Length + variablesList[index + 5].Length);
+                    variablesList[index + 6].CopyTo(inputs, variablesList[index].Length + variablesList[index + 2].Length + variablesList[index + 3].Length + variablesList[index + 4].Length + variablesList[index + 5].Length + variablesList[index + 6].Length);
+
+                    result = neuralNetwork.Oblicz(inputs);
+
+                    for (int j = 0; j < result.Length; j++)
+                        result[j] = Math.Round(result[j], 2);
+
+                    variablesList.Insert(0, result);
+                    datesList.Insert(0, i);
+
+                    //For each date proccess 3 earlier days, neuralNetwork must save results to file then add each result for processing next day forecast
                     //neuralNetwork.Guess(data[index]);
-                    //Save to Dane.csv
+                    //Save to Dane.csv, normalize again*, update variableList - variableList.Insert(0, outputData from network)
                 }
             }
             else
             {
-                int index = datesList.FindIndex(date => date.Contains(temp));
-                //Find indexes of 7 earlier days then put them into neuralNetwork to procces
-                //neuralNetwork.Guess(data[index]);
+                int index = datesList.FindIndex(date => date == selectedDate);
+                result = variablesList[index];
             }
 
 
             //TODO: get values from array
 
-            decimal temperature = 10;
-            decimal pressure = 10;
-            decimal humidity = 10;
-            decimal rain = 10;
-            decimal cloud = 10;
+            double temperature = Math.Round(result[0] * (maxTemp - minTemp) + minTemp);
+            double pressure = Math.Round(result[1] * (maxP - minP) + minP);
+            double humidity = Math.Round(result[2] * 100);
+            double rain = Math.Round(result[3] * 100);
+            double cloud = Math.Round(result[4] * 100);
 
 
             //TODO: denormalise values
@@ -81,7 +106,9 @@
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        { 
+        {
+            neuralNetwork = Network.WczytajWagi(@"jsonW1.json", @"jsonW2.json", @"jsonW3.json", @"jsonB1.json", @"jsonB2.json", @"jsonB3.json");
+
             //DatePicker setup:
             string firstLine = File.ReadLines(file).Skip(1).Take(1).First();
             string lastLine = File.ReadLines(file).Last();
@@ -89,34 +116,33 @@
             firstLine = firstLine.Substring(0, 10);
             lastLine = lastLine.Substring(0, 10);
 
-            DateTime start = DateTime.Parse(lastLine).AddDays(7);
-            DateTime end = DateTime.Parse(firstLine).AddDays(4);
+            DateTime start = DateTime.Parse(lastLine);
+            DateTime end = DateTime.Parse(firstLine);
             Date_pick.DisplayDateStart = start;
-            Date_pick.DisplayDateEnd = end;
+            Date_pick.DisplayDateEnd = end.AddDays(4);
 
             for (var dt = start; dt <= end; dt = dt.AddDays(1))
-            {
-                datesList.Add(dt.ToString("dd.MM.yyyy"));
-            }
+                datesList.Add(dt);
 
-            //Loading data:
+            datesList.Reverse();
+
+            //Loading data to variableList
             string[] allLines = File.ReadAllLines(file);
             allLines = allLines.Skip(1).ToArray();
             string[][] data = new string[allLines.Length][];
-            for(int i = 0; i < allLines.Length; i++)
-            {
+            for (int i = 0; i < allLines.Length; i++)
                 data[i] = allLines[i].Split(',');
-            }
+
             maxIndex = data.Length - 1;
-            for(int i = 0; i < allLines.Length; i++)
+            for (int i = 0; i < allLines.Length; i++)
             {
-                decimal[] decimalData = new decimal[data[i].Length - 1];
-                for(int j = 1; j < data[i].Length; j++)
+                double[] doubleData = new double[data[i].Length - 1];
+                for (int j = 1; j < data[i].Length; j++)
                 {
                     double.TryParse(data[i][j], out double temp);
-                    decimalData[j - 1] = (decimal)temp;
+                    doubleData[j - 1] = temp;
                 }
-                variablesList.Add(decimalData);
+                variablesList.Add(doubleData);
             }
 
             //Normalize
@@ -124,26 +150,35 @@
             maxTemp = variablesList[0][0];
             minP = variablesList[0][1];
             maxP = variablesList[0][1];
-            for(int i = 1; i < allLines.Length; i++)
+            for (int i = 1; i < allLines.Length; i++)
             {
                 if (minTemp > variablesList[i][0]) minTemp = variablesList[i][0];
                 if (maxTemp < variablesList[i][0]) maxTemp = variablesList[i][0];
                 if (minP > variablesList[i][1]) minP = variablesList[i][1];
                 if (maxP < variablesList[i][1]) maxP = variablesList[i][1];
             }
-            for (int i = 0; i < allLines.Length; i++)
-            {
-                variablesList[i][0] = System.Math.Round((variablesList[i][0] - minTemp) / (maxTemp - minTemp), 2);
-                variablesList[i][1] = System.Math.Round((variablesList[i][1] - minP) / (maxP - minP), 2);
-            }
-
 
             //Get Min/Max values
+            for (int i = 0; i < allLines.Length; i++)
+            {
+                variablesList[i][0] = Math.Round((variablesList[i][0] - minTemp) / (maxTemp - minTemp), 2);
+                variablesList[i][1] = Math.Round((variablesList[i][1] - minP) / (maxP - minP), 2);
+            }
+            //neuralNetwork = new Network(35, new int[] { 17, 8 }, 5);
+            //Data dataClass = new Data();
+
+            //var daneTreningowe = new List<ZbiorDanych>();
+            //for (int i = 0; i < dataClass.trainingInputs.Count; i++)
+            //{
+            //    daneTreningowe.Add(new ZbiorDanych(dataClass.trainingInputs[i], dataClass.trainingTargets[i]));
+            //}
+
+            //neuralNetwork.Trenuj(daneTreningowe, 50);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //Overwrtie data file 
+            //Overwrtie data file
             //Keep old dates, overwrite only dates that are in the future
         }
     }
