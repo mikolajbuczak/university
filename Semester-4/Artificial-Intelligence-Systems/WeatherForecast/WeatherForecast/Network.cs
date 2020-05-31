@@ -59,36 +59,6 @@ namespace WeatherForecast
                 WyjsciowaWarstwa.Neurony.Add(new Neuron(UkrytwaWarstwa.Last()));
             }
         }
-
-        public void Trenuj(List<ZbiorDanych> zbiorDanych, int epochs)
-        {
-            for (int i = 0; i < epochs; i++)
-            {
-                foreach (var dane in zbiorDanych)
-                {
-                    ForwardPropagation(dane.Wartosci);
-                    BackPropagation(dane.Cel);
-                }
-            }
-        }
-
-        public void Trenuj(List<ZbiorDanych> zbiorDanych,double minBlad)
-        {
-            double blad = 1.0;
-            int epochs = 0;
-            while(blad>minBlad && epochs < int.MaxValue)
-            {
-                List<double> listaBledow = new List<double>();
-                foreach (var dane in zbiorDanych)
-                {
-                    ForwardPropagation(dane.Wartosci);
-                    BackPropagation(dane.Cel);
-                    listaBledow.Add(ObliczBlad(dane.Cel));
-                }
-                blad = listaBledow.Average();
-                epochs++;
-            }
-        }
         private void ForwardPropagation(params double[] wejscie)
         {
             var i = 0;

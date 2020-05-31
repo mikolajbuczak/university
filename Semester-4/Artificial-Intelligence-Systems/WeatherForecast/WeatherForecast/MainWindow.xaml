@@ -5,50 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherForecast"
         mc:Ignorable="d"
-        Title="ciwotaK ald adogoP" Height="300" Width="420" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="WeatherForecast" Height="300" Width="420" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="spodek.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
         <Grid>
+            
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
             <DatePicker x:Name="Date_pick" Grid.Row="0" Margin="10" VerticalContentAlignment="Center" SelectedDateChanged="Date_pick_SelectedDateChanged" Focusable = "False"/>
-            <Button x:Name="Start_button" Grid.Row="2" Width="100" IsEnabled="False" Margin="10" Content="Show forecast" Click="Start_button_Click"/>
+            <Button x:Name="Start_button" Grid.Row="3" Width="100" IsEnabled="False" Margin="10" Content="Show forecast" Click="Start_button_Click"/>
+            <Button x:Name="Api_button" Grid.Row="2" Width="100" IsEnabled="True" Margin="10" Content="Use API data" Click="Api_button_Click"/>
+            <Button x:Name="Reverse_button" Grid.Row="2" Visibility="Hidden" IsEnabled="false" Margin="158,10,10,10" Click="Reverse_button_Click">
+                <Image Source="reverse.png"></Image>
+            </Button>
+
         </Grid>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">
-            <TextBlock x:Name="Temperature_tb" Margin="10" Visibility="Hidden">
+
+            <TextBlock x:Name="Temperature_tb" Margin="10" Visibility="Hidden" Foreground="White">
                 <Run Text="Temperature: "/>
                 <Run x:Name="Temperature_run" Text="100"/>
                 <Run Text="°C"/>
             </TextBlock>
 
-            <TextBlock x:Name="Pressure_tb" Margin="10" Visibility="Hidden">
+            <TextBlock x:Name="Pressure_tb" Margin="10" Visibility="Hidden" Foreground="White">
                 <Run Text="Pressure: "/>
                 <Run x:Name="Pressure_run" Text="1013"/>
                 <Run Text="hPa"/>
             </TextBlock>
 
-            <TextBlock x:Name="Humidity_tb" Margin="10" Visibility="Hidden">
+            <TextBlock x:Name="Humidity_tb" Margin="10" Visibility="Hidden" Foreground="White">
                 <Run Text="Humidity: "/>
                 <Run x:Name="Humidity_run" Text="20"/>
                 <Run Text="%"/>
             </TextBlock>
 
-            <TextBlock x:Name="Rain_tb" Margin="10" Visibility="Hidden">
-                <Run Text="Rain probability: "/>
-                <Run x:Name="Rain_run" Text="20"/>
-                <Run Text="%"/>
+            <TextBlock x:Name="Wind_tb" Margin="10" Visibility="Hidden" Foreground="White">
+                <Run Text="Wind: "/>
+                <Run x:Name="Wind_run" Text="20"/>
+                <Run Text="km/h"/>
             </TextBlock>
 
-            <TextBlock x:Name="Cloud_tb" Margin="10" Visibility="Hidden">
+            <TextBlock x:Name="Cloud_tb" Margin="10" Visibility="Hidden" Foreground="White">
                 <Run Text="Cloud cover: "/>
                 <Run x:Name="Cloud_run" Text="20"/>
                 <Run Text="%"/>

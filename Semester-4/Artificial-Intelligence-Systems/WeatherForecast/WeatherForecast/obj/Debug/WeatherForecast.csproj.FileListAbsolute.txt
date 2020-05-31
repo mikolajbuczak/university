@@ -61,3 +61,60 @@ E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\WeatherForecast\
 E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\WeatherForecast\WeatherForecast\bin\Debug\Newtonsoft.Json.dll
 E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\WeatherForecast\WeatherForecast\bin\Debug\Newtonsoft.Json.xml
 E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\WeatherForecast\WeatherForecast\obj\Debug\WeatherForecast.csproj.CopyComplete
+C:\Users\Cydek\Desktop\WeatherForecast\WeatherForecast\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Cydek\Desktop\WeatherForecast\WeatherForecast\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Cydek\Desktop\WeatherForecast\WeatherForecast\obj\Debug\WeatherForecast.csproj.CopyComplete
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\bin\Debug\WeatherForecast.exe.config
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\bin\Debug\WeatherForecast.exe
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\bin\Debug\WeatherForecast.pdb
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast.csprojAssemblyReference.cache
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\MainWindow.g.cs
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\App.g.cs
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast_MarkupCompile.cache
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast_MarkupCompile.lref
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\MainWindow.baml
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast.g.resources
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast.Properties.Resources.resources
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast.csproj.GenerateResource.cache
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast.csproj.CoreCompileInputs.cache
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast.csproj.CopyComplete
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast.exe
+C:\Users\Cydek\Desktop\WeatherForecast — kopia\WeatherForecast\obj\Debug\WeatherForecast.pdb
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\bin\Debug\WeatherForecast.exe.config
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\bin\Debug\WeatherForecast.exe
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\bin\Debug\WeatherForecast.pdb
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast.csprojAssemblyReference.cache
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\MainWindow.g.cs
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\App.g.cs
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast_MarkupCompile.cache
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast_MarkupCompile.lref
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\MainWindow.baml
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast.g.resources
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast.Properties.Resources.resources
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast.csproj.GenerateResource.cache
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast.csproj.CoreCompileInputs.cache
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast.csproj.CopyComplete
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast.exe
+C:\Users\Cydek\Desktop\WeatherForecast — 5 days\WeatherForecast\obj\Debug\WeatherForecast.pdb
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\bin\Debug\WeatherForecast.exe.config
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\bin\Debug\WeatherForecast.exe
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\bin\Debug\WeatherForecast.pdb
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast.csprojAssemblyReference.cache
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\MainWindow.g.cs
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\App.g.cs
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast_MarkupCompile.cache
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast_MarkupCompile.lref
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\MainWindow.baml
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast.g.resources
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast.Properties.Resources.resources
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast.csproj.GenerateResource.cache
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast.csproj.CoreCompileInputs.cache
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast.csproj.CopyComplete
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast.exe
+C:\Users\Cydek\Desktop\WeatherForecast5 days\WeatherForecast\obj\Debug\WeatherForecast.pdb
