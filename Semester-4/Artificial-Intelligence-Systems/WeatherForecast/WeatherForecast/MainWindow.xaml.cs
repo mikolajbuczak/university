@@ -208,7 +208,7 @@
             {
                 double[] dayVariables = new double[5];
 
-                string url = "https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=50.28&lon=19.04&units=metric&dt=@unixDate@&appid=20ffd6029c24dc7e993e250dedd7824c";
+                string url = "here goes your API key"
                 long temp = ConvertToUnixTime(i);
                 url = url.Replace("@unixDate@", temp.ToString());
                 HttpWebRequest apiRequest = WebRequest.Create(url) as HttpWebRequest;

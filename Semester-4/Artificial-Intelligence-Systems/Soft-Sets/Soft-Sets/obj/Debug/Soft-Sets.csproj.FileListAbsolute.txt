@@ -1,0 +1,7 @@
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Soft-Sets\Soft-Sets\bin\Debug\Soft-Sets.exe.config
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Soft-Sets\Soft-Sets\bin\Debug\Soft-Sets.exe
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Soft-Sets\Soft-Sets\bin\Debug\Soft-Sets.pdb
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Soft-Sets\Soft-Sets\obj\Debug\Soft-Sets.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Soft-Sets\Soft-Sets\obj\Debug\Soft-Sets.csproj.CoreCompileInputs.cache
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Soft-Sets\Soft-Sets\obj\Debug\Soft-Sets.exe
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Soft-Sets\Soft-Sets\obj\Debug\Soft-Sets.pdb
