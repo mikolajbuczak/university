@@ -1,0 +1,7 @@
+M2.2. 
+
+2.2.a. Scharakteryzuj istniejący (dowolnie wybrany) system informatyczny wspomagający pracę kawiarenki internetowej [→https://www.eurocafe.pl/katowice.htm]
+
+2.2.b. Przedstaw (na przykładzie) praktyczne aspekty analizy użyteczności internetowego systemu informatycznego wspomagającego zdalną edukację (PZE RMS: [→http://platforma.polsl.pl/rms])
+
+2.2.c. Traktując jako bazową specyfikację techniczną dostępną pod tym adresem: [→https://tiny.pl/t3dfl], opracuj specyfikację techniczną dla systemu zarządzania treścią prezentującego wirtualne wizytówki Studentów (w ramach wizytówki oprócz danych kontaktowych są informacje na temat osiągnięć uzyskanych w trakcie realizacji projektów na zajęciach dydaktycznych)

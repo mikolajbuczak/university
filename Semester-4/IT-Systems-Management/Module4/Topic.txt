@@ -1,0 +1,1 @@
+M4.6. Zarządzanie infrastrukturą informatyczną Internetu Rzeczy [Przydatne: →https://www.shodan.io, →https://thingspeak.com]
