@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------
 
 using Desktop_Bartender;
-using Desktop_Bartender.ViewModels;
+using Desktop_Bartender.Viewmodels;
 using Desktop_Bartender.Views;
 using System;
 using System.Diagnostics;

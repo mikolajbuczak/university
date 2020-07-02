@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\GitHub\University\Semester-4\Object-oriented-Graphical-Programming\Project\Desktop-Bartender\Desktop-Bartender\App.xaml
-11151548125
+81028001173
 
-6-672307367
+22-945067722
 13-1505183044
-MainWindow.xaml;
+Views\Cocktail.xaml;Views\CocktailList.xaml;Views\ForgotPassword.xaml;Views\Ingredients.xaml;Views\Login.xaml;Views\MainWindow.xaml;Views\Register.xaml;Views\User.xaml;
 
-True
+False
 

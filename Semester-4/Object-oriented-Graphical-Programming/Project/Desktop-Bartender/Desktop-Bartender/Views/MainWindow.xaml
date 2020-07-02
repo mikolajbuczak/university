@@ -1,0 +1,54 @@
+﻿<Window x:Class="Desktop_Bartender.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:Desktop_Bartender.Viewmodels"
+        xmlns:views="clr-namespace:Desktop_Bartender.Views"
+        xmlns:local="clr-namespace:Desktop_Bartender"
+        mc:Ignorable="d"
+        Title="Desktop Bartender" Height="450" Width="800" MinWidth="800" MinHeight="450" ResizeMode="NoResize">
+    <Window.Resources>
+        <!--MainWindow ViewModel-->
+        <viewmodels:MainViewModel x:Key="MainWindowViewModel"/>
+
+        <!--Login View-->
+        <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+            <views:Login/>
+        </DataTemplate>
+
+        <!--Register View-->
+        <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
+            <views:Register/>
+        </DataTemplate>
+
+        <!--ForgotPassword View-->
+        <DataTemplate DataType="{x:Type viewmodels:ForgotPasswordViewModel}">
+            <views:ForgotPassword/>
+        </DataTemplate>
+
+        <!--Ingredients View-->
+        <DataTemplate DataType="{x:Type viewmodels:IngredientsViewModel}">
+            <views:Ingredients/>
+        </DataTemplate>
+
+        <!--CocktailList View-->
+        <DataTemplate DataType="{x:Type viewmodels:CocktailListViewModel}">
+            <views:CocktailList/>
+        </DataTemplate>
+        
+        <!--Cocktail View-->
+        <DataTemplate DataType="{x:Type viewmodels:CocktailViewModel}">
+            <views:Cocktail/>
+        </DataTemplate>
+
+        <!--User View-->
+        <DataTemplate DataType="{x:Type viewmodels:UserViewModel}">
+            <views:User/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid x:Name="MainGrid" DataContext="{StaticResource MainWindowViewModel}">
+      <ContentControl Content="{Binding SelectedViewModel}"/>
+    </Grid>
+</Window>
