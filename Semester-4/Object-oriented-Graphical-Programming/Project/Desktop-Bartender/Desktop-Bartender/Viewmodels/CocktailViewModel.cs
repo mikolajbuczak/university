@@ -1,4 +1,4 @@
-﻿using Desktop_Bartender.Viewmodels.Base;
+﻿using GalaSoft.MvvmLight;
 
 namespace Desktop_Bartender.Viewmodels
 {

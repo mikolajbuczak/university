@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Desktop_Bartender.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding RegisterViewModel, Source={StaticResource Locator}}">
   <Grid Background="DodgerBlue">
     <Grid.ColumnDefinitions>
       <ColumnDefinition/>
@@ -36,6 +37,7 @@
       <Label Grid.Row="0" Content="User already registered." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Red" Visibility="Hidden"/>
       <Label Grid.Row="0" Content="Password too short." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Red" Visibility="Hidden"/>
       <Label Grid.Row="0" Content="Passwords don't match." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Red" Visibility="Hidden"/>
+      <Label Grid.Row="0" Content="Successful registration." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Green" Visibility="Hidden"/>  
       <Grid Grid.Row="1" Margin="5, 0">
         <Grid.ColumnDefinitions>
           <ColumnDefinition/>
@@ -86,7 +88,7 @@
             <ColumnDefinition Width="0.05*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="1" Content="Go back" Margin="10, 5" Background="Transparent" BorderThickness="0">
+                <Button Grid.Column="1" Content="Go back" Margin="10, 5" Background="Transparent" BorderThickness="0" Command="{Binding GoBack}">
           <Button.Resources>
             <Style TargetType="Border">
               <Setter Property="CornerRadius" Value="5"/>
