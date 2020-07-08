@@ -1,26 +1,30 @@
-﻿using Desktop_Bartender.Viewmodels.Base;
+﻿using GalaSoft.MvvmLight;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using Desktop_Bartender.Helpers;
 
 namespace Desktop_Bartender.Viewmodels
 {
-    class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
-        private ViewModelBase currentViewModel;
-
-        public MainViewModel()
+        private IFrameNavigationService _navigationService;
+        private RelayCommand _loadedCommand;
+        public RelayCommand LoadedCommand
         {
-            currentViewModel = new LoginViewModel();
+            get
+            {
+                return _loadedCommand
+                    ?? (_loadedCommand = new RelayCommand(
+                    () =>
+                    {
+                        _navigationService.NavigateTo("Login");
+                    }));
+            }
         }
 
-        public LoginViewModel MainScreenViewModel { get; set; }
-
-        public ViewModelBase CurrentViewModel
+        public MainViewModel(IFrameNavigationService navigationService)
         {
-            get { return currentViewModel; }
-            set
-            {
-                currentViewModel = value;
-                OnPropertyChanged(nameof(CurrentViewModel));
-            }
+            _navigationService = navigationService;
         }
     }
 }

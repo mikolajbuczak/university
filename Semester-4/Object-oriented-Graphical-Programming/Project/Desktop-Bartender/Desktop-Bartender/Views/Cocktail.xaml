@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="520">
-  <Grid Grid.Column="1" Margin="10">
+             d:DesignHeight="450" d:DesignWidth="520"
+             DataContext="{Binding CocktailViewModel,Source={StaticResource Locator}}">
+    
+    <Grid Grid.Column="1" Margin="10">
     <Grid.RowDefinitions>
       <RowDefinition Height="40"/>
       <RowDefinition/>
@@ -38,7 +40,7 @@
         <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility ="Disabled" Margin="1,0,1,1">
           <ListView BorderThickness="0"/>
         </ScrollViewer>
-        <Button Grid.Column="1" Grid.Row="7" Content="GO BACK" Background="Green" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Margin="0,2,0,2">
+                <Button Grid.Column="1" Grid.Row="7" Content="GO BACK" Background="Green" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Margin="0,2,0,2" Command="{Binding GoBack}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

@@ -6,49 +6,17 @@
         xmlns:viewmodels="clr-namespace:Desktop_Bartender.Viewmodels"
         xmlns:views="clr-namespace:Desktop_Bartender.Views"
         xmlns:local="clr-namespace:Desktop_Bartender"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
-        Title="Desktop Bartender" Height="450" Width="800" MinWidth="800" MinHeight="450" ResizeMode="NoResize">
-    <Window.Resources>
-        <!--MainWindow ViewModel-->
-        <viewmodels:MainViewModel x:Key="MainWindowViewModel"/>
-
-        <!--Login View-->
-        <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
-            <views:Login/>
-        </DataTemplate>
-
-        <!--Register View-->
-        <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
-            <views:Register/>
-        </DataTemplate>
-
-        <!--ForgotPassword View-->
-        <DataTemplate DataType="{x:Type viewmodels:ForgotPasswordViewModel}">
-            <views:ForgotPassword/>
-        </DataTemplate>
-
-        <!--Ingredients View-->
-        <DataTemplate DataType="{x:Type viewmodels:IngredientsViewModel}">
-            <views:Ingredients/>
-        </DataTemplate>
-
-        <!--CocktailList View-->
-        <DataTemplate DataType="{x:Type viewmodels:CocktailListViewModel}">
-            <views:CocktailList/>
-        </DataTemplate>
-        
-        <!--Cocktail View-->
-        <DataTemplate DataType="{x:Type viewmodels:CocktailViewModel}">
-            <views:Cocktail/>
-        </DataTemplate>
-
-        <!--User View-->
-        <DataTemplate DataType="{x:Type viewmodels:UserViewModel}">
-            <views:User/>
-        </DataTemplate>
-    </Window.Resources>
-    
-    <Grid x:Name="MainGrid" DataContext="{StaticResource MainWindowViewModel}">
-      <ContentControl Content="{Binding SelectedViewModel}"/>
+        Title="Desktop Bartender" Height="450" Width="800" MinWidth="800" MinHeight="450" ResizeMode="NoResize" WindowStyle="ToolWindow"
+        DataContext="{Binding Main, Source={StaticResource Locator}}" >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <command:EventToCommand Command="{Binding LoadedCommand, Mode=OneWay}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Frame x:Name="MainFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

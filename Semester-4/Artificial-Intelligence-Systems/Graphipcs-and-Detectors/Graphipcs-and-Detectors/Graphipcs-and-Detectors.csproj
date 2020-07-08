@@ -44,7 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bayes.cs" />
+    <Compile Include="Cluster.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="Dataset.cs" />
     <Compile Include="Graphics.cs" />
+    <Compile Include="Iris.cs" />
+    <Compile Include="IrisDataset.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,24 +1,61 @@
-﻿using Desktop_Bartender.Viewmodels.Base;
-using System.Windows;
-using System.Windows.Input;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using Desktop_Bartender.Helpers;
 
 namespace Desktop_Bartender.Viewmodels
 {
     class LoginViewModel : ViewModelBase
     {
-        private ICommand changeViewToRegister = null;
-        public ICommand ChangeViewToRegister
+        private IFrameNavigationService _navigationService;
+
+        private RelayCommand _registerCommand;
+
+        public RelayCommand ChangeViewToRegister
         {
             get
             {
-                if (changeViewToRegister == null)
-                {
-                    changeViewToRegister = new RelayCommand(
-                        arg => ((MainViewModel)Application.Current.MainWindow.DataContext).CurrentViewModel = new RegisterViewModel(),
-                        arg => true);
-                }
-                return changeViewToRegister;
+                return _registerCommand
+                       ?? (_registerCommand = new RelayCommand(
+                           () =>
+                           {
+                               _navigationService.NavigateTo("Register");
+                           }));
             }
         }
+
+        private RelayCommand _forgotPassword;
+
+        public RelayCommand ChangeViewToForgotPassword
+        {
+            get
+            {
+                return _forgotPassword
+                       ?? (_forgotPassword = new RelayCommand(
+                           () =>
+                           {
+                               _navigationService.NavigateTo("ForgotPassword");
+                           }));
+            }
+        }
+
+        private RelayCommand _ingredientsCommand;
+        public RelayCommand ChangeViewToIngredients
+        {
+            get
+            {
+                return _ingredientsCommand
+                       ?? (_ingredientsCommand = new RelayCommand(
+                           () =>
+                           {
+                               _navigationService.NavigateTo("Ingredients");
+                           }));
+            }
+        }
+
+        public LoginViewModel(IFrameNavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
     }
+   
 }
