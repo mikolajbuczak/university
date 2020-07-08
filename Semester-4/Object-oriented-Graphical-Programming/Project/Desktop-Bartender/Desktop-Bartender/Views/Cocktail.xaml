@@ -40,7 +40,7 @@
         <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility ="Disabled" Margin="1,0,1,1">
           <ListView BorderThickness="0"/>
         </ScrollViewer>
-        <Button Grid.Column="1" Grid.Row="7" Content="GO BACK" Background="Green" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Margin="0,2,0,2">
+                <Button Grid.Column="1" Grid.Row="7" Content="GO BACK" Background="Green" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Margin="0,2,0,2" Command="{Binding GoBack}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

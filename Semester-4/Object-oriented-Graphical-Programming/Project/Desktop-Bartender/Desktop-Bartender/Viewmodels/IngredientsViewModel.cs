@@ -7,6 +7,7 @@ namespace Desktop_Bartender.Viewmodels
     class IngredientsViewModel : ViewModelBase
     {
         private IFrameNavigationService _navigationService;
+        public static bool FromIngredients;
 
         private RelayCommand _userCommand;
 
@@ -51,11 +52,16 @@ namespace Desktop_Bartender.Viewmodels
                                _navigationService.NavigateTo("CocktailList");
                            }));
             }
+            set
+            {
+                FromIngredients = true;
+            }
         }
 
         public IngredientsViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
+            FromIngredients = false;
         }
     }
 }
