@@ -1,6 +1,4 @@
 ﻿using Desktop_Bartender.Helpers;
-using Desktop_Bartender.Views;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using System;

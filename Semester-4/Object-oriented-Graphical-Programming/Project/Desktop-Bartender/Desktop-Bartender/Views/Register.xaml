@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Desktop_Bartender.Views"
+             xmlns:helpers="clr-namespace:Desktop_Bartender.Helpers"
+             xmlns:resx="clr-namespace:Desktop_Bartender.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding RegisterViewModel, Source={StaticResource Locator}}">
@@ -34,17 +36,14 @@
         <RowDefinition/>
       </Grid.RowDefinitions>
 
-      <Label Grid.Row="0" Content="User already registered." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Red" Visibility="Hidden"/>
-      <Label Grid.Row="0" Content="Password too short." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Red" Visibility="Hidden"/>
-      <Label Grid.Row="0" Content="Passwords don't match." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Red" Visibility="Hidden"/>
-      <Label Grid.Row="0" Content="Successful registration." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Green" Visibility="Hidden"/>  
-      <Grid Grid.Row="1" Margin="5, 0">
+            <Label Grid.Row="0" Content="{Binding Path=Error}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Red"/>
+            <Grid Grid.Row="1" Margin="5, 0">
         <Grid.ColumnDefinitions>
           <ColumnDefinition/>
           <ColumnDefinition Width="1.6*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="0" Content="Login:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Stretch" FontSize="24" VerticalContentAlignment="Center" Margin="0,0,10,0"/>
+        <Label Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.Login}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18"/>
+        <TextBox Grid.Column="1" Text="{Binding Path=Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" FontSize="24" VerticalContentAlignment="Center" Margin="0,0,10,0"/>
       </Grid>
 
       <Grid Grid.Row="3" Margin="5, 0">
@@ -52,8 +51,8 @@
           <ColumnDefinition/>
           <ColumnDefinition Width="1.6*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="0" Content="Password:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18"/>
-                <PasswordBox Grid.Column="1" HorizontalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,10,0" PasswordChar="&#x2022;"/>
+        <Label Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.Password}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18"/>
+        <PasswordBox Name="Pass" helpers:PasswordBoxAssistant.BindPassword="True" helpers:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,10,0" PasswordChar="&#x2022;"/>
       </Grid>
 
       <Grid Grid.Row="5" Margin="5, 0">
@@ -61,8 +60,8 @@
           <ColumnDefinition/>
           <ColumnDefinition Width="1.6*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="0" Content="Confirm Password:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" />
-                <PasswordBox Grid.Column="1" HorizontalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,10,0" PasswordChar="&#x2022;"/>
+        <Label Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.ConfirmPassword}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" />
+        <PasswordBox Name="ConfirmPass" helpers:PasswordBoxAssistant.BindPassword="True" helpers:PasswordBoxAssistant.BoundPassword="{Binding Path=ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,10,0" PasswordChar="&#x2022;"/>
       </Grid>
 
       <Grid Grid.Row="7" Margin="10, 0">
@@ -72,7 +71,7 @@
           <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="1" Content="Register" FontSize="14" Background="LimeGreen" Foreground="White">
+        <Button Grid.Column="1" Content="{Binding Source={x:Static resx:Resources.RegisterButton}}" FontSize="14" Background="LimeGreen" Foreground="White" Command="{Binding Register}">
           <Button.Resources>
             <Style TargetType="Border">
               <Setter Property="CornerRadius" Value="5"/>
@@ -88,7 +87,7 @@
             <ColumnDefinition Width="0.05*"/>
         </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="1" Content="Go back" Margin="10, 5" Background="Transparent" BorderThickness="0" Command="{Binding GoBack}">
+        <Button Grid.Column="1" Content="{Binding Source={x:Static resx:Resources.GoBack}}" Margin="10, 5" Background="Transparent" BorderThickness="0" Command="{Binding GoBack}">
           <Button.Resources>
             <Style TargetType="Border">
               <Setter Property="CornerRadius" Value="5"/>

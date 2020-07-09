@@ -1,7 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
-using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Desktop_Bartender.Helpers;
+using Desktop_Bartender.Models;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Desktop_Bartender.Viewmodels
 {

@@ -6,10 +6,11 @@
         xmlns:viewmodels="clr-namespace:Desktop_Bartender.Viewmodels"
         xmlns:views="clr-namespace:Desktop_Bartender.Views"
         xmlns:local="clr-namespace:Desktop_Bartender"
+        xmlns:resx="clr-namespace:Desktop_Bartender.Properties"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
-        Title="Desktop Bartender" Height="450" Width="800" MinWidth="800" MinHeight="450" ResizeMode="NoResize" WindowStyle="ToolWindow"
+        Title="{Binding Source={x:Static resx:Resources.Title}}" Height="450" Width="800" MinWidth="800" MinHeight="450" ResizeMode="NoResize" WindowStyle="ToolWindow"
         DataContext="{Binding Main, Source={StaticResource Locator}}" >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">

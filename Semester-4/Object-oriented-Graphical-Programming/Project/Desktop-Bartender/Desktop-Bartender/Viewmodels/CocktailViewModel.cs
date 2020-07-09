@@ -1,29 +1,33 @@
-﻿using Desktop_Bartender.Helpers;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-
-namespace Desktop_Bartender.Viewmodels
+﻿namespace Desktop_Bartender.Viewmodels
 {
+    using Desktop_Bartender.Helpers;
+    using System.Windows.Input;
+    using BaseViewModel;
     class CocktailViewModel : ViewModelBase
     {
         private IFrameNavigationService _navigationService;
 
-        private RelayCommand _goBack;
+        private ICommand _goBack;
 
-        public RelayCommand GoBack
+        public ICommand GoBack
         {
             get
             {
-                return _goBack
-                       ?? (_goBack = new RelayCommand(
-                           () =>
-                           { if (IngredientsViewModel.FromIngredients == true)
-                               {
-                                   _navigationService.NavigateTo("Ingredients");
-                               }
-                             else
-                               _navigationService.NavigateTo("User");
-                           }));
+                if (_goBack == null)
+                {
+                    _goBack = new RelayCommand(
+                        arg =>
+                        {
+                            if (IngredientsViewModel.FromIngredients == true)
+                            {
+                                _navigationService.NavigateTo("Ingredients");
+                            }
+                            else
+                                _navigationService.NavigateTo("User");
+                        },
+                        arg => true);
+                }
+                return _goBack;
             }
         }
 

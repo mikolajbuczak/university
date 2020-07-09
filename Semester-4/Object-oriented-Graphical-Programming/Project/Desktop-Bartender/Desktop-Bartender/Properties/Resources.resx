@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,120 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlreadyRegistered" xml:space="preserve">
+    <value>User already registered.</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>CATEGORY</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>CHANGE</value>
+  </data>
+  <data name="ChangeConfirmation" xml:space="preserve">
+    <value>CHANGES MADE</value>
+  </data>
+  <data name="CocktailName" xml:space="preserve">
+    <value>COCTAIL NAME</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>CREATE</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="DeleteFavorite" xml:space="preserve">
+    <value>DELETE</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Failure" xml:space="preserve">
+    <value>Couldn't register an user!</value>
+  </data>
+  <data name="Favorite" xml:space="preserve">
+    <value>FAVORITES</value>
+  </data>
+  <data name="FPButton" xml:space="preserve">
+    <value>Forgot Password?</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Go Back</value>
+  </data>
+  <data name="GoBackBig" xml:space="preserve">
+    <value>GO BACK</value>
+  </data>
+  <data name="Ingredients" xml:space="preserve">
+    <value>INGREDIENTS</value>
+  </data>
+  <data name="InvalidLoginPass" xml:space="preserve">
+    <value>Invalid login or password!</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>LOGIN</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>LOGOUT</value>
+  </data>
+  <data name="NewLogin" xml:space="preserve">
+    <value>NEW LOGIN:</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>NEW PASSWORD:</value>
+  </data>
+  <data name="NoMatch" xml:space="preserve">
+    <value>No matches!</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterButton" xml:space="preserve">
+    <value>REGISTER</value>
+  </data>
+  <data name="RemindButton" xml:space="preserve">
+    <value>REMIND</value>
+  </data>
+  <data name="ReturnedPassword" xml:space="preserve">
+    <value>Your password:</value>
+  </data>
+  <data name="SignUpButton" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success!</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Desktop Bartender</value>
+  </data>
+  <data name="TitleBig" xml:space="preserve">
+    <value>DESKTOP BARTENDER</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>TOOLS</value>
+  </data>
+  <data name="UsedNick" xml:space="preserve">
+    <value>NICK ALREADY TAKEN</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>PROFILE</value>
+  </data>
+  <data name="UserPanel" xml:space="preserve">
+    <value>USER's PANEL</value>
+  </data>
+  <data name="YourDrinks" xml:space="preserve">
+    <value>YOUR DRINKS</value>
+  </data>
+  <data name="yourList" xml:space="preserve">
+    <value>YOUR LIST</value>
+  </data>
 </root>

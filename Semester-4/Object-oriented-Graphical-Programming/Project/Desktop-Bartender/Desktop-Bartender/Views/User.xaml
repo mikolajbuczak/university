@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Desktop_Bartender.Views"
+             xmlns:helpers="clr-namespace:Desktop_Bartender.Helpers"
+             xmlns:resx="clr-namespace:Desktop_Bartender.Properties"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800" Background="#CCFFFF"
              DataContext="{Binding UserViewModel,Source={StaticResource Locator}}">
@@ -23,9 +25,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition  Width="0.2*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="GO BACK" Background="Transparent" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Command="{Binding ChangeViewToIngredients}"/>
-            <Label Grid.Column="1" Content="MAKE ME A COCKTAIL!" FontFamily="Comic Sans MS"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-            <Button Grid.Column="2" Content="LOGOUT" Background="Transparent" BorderThickness="0" FontFamily="Comic Sans MS"  FontSize="14" Foreground="White" Command="{Binding Logout}"/>
+            <Button Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.GoBackBig}}" Background="Transparent" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Command="{Binding ChangeViewToIngredients}"/>
+            <Label Grid.Column="1" Content="{Binding Source={x:Static resx:Resources.TitleBig}}" FontFamily="Comic Sans MS"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <Button Grid.Column="2" Content="{Binding Source={x:Static resx:Resources.Logout}}" Background="Transparent" BorderThickness="0" FontFamily="Comic Sans MS"  FontSize="14" Foreground="White" Command="{Binding Logout}"/>
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="1" Margin="10">
@@ -37,15 +39,15 @@
                 <RowDefinition Height="0.4*"/>
             </Grid.RowDefinitions>
             <Border BorderThickness="0" Grid.Row="0" Background="#EBEBD3"/>
-            <Label Grid.Row="0" Content="USERNAME BINDING + PANEL" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS" FontSize="20"/>
+            <Label Grid.Row="0" Content="{Binding Source={x:Static resx:Resources.UserPanel}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS" FontSize="20"/>
 
             <Grid Grid.Row="1" Margin="5, 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Content="NEW LOGIN:" FontFamily="Comic Sans MS" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="13" Grid.ColumnSpan="2" Margin="0,0,235,0"/>
-                <TextBox Grid.Column="1" FontSize="28" FontFamily="Comic Sans MS" Padding="5" Margin="10,40,10,40"/>
+                <Label Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.NewLogin}}" FontFamily="Comic Sans MS" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="13" Grid.ColumnSpan="2" Margin="0,0,235,0"/>
+                <TextBox Text="{Binding Path=Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="20" FontFamily="Comic Sans MS" Padding="5" Margin="10,40,10,40"/>
             </Grid>
 
             <Grid Grid.Row="2" Margin="5, 0">
@@ -54,13 +56,13 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="1" FontSize="20" Padding="5" Margin="10,10,10,10"/>
-                <Label Grid.Column="0" Content="NEW PASSWORD:" FontFamily="Comic Sans MS" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="13" Grid.ColumnSpan="2" Margin="0,0,235,0"/>
-                <PasswordBox Grid.Column="1" FontSize="28" Padding="5" Margin="10,40,10,40" PasswordChar="&#x2022;"/>
+                <Label Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.NewPassword}}" FontFamily="Comic Sans MS" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="13" Grid.ColumnSpan="2" Margin="0,0,235,0"/>
+                <PasswordBox Name="NetworkPassword" helpers:PasswordBoxAssistant.BindPassword="True" helpers:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" FontSize="28" Padding="5" Margin="10,40,10,40" PasswordChar="&#x2022;"/>
             </Grid>
 
-            <Label Grid.Row="3" Content="NICK ALREADY TAKEN." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" Foreground="Red" Visibility="Hidden"/>
-            <Label Grid.Row="3" Content="CHANGES MADE." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="13" Foreground="Green" Visibility="Hidden"/>
-            <Button Grid.Row="4" Content="CHANGE" Margin="0, 10, 5, 0" Background="#66FF66" Foreground="White" FontFamily="Comic Sans MS" FontSize="20">
+            <Label Grid.Row="3" Content="{Binding Source={x:Static resx:Resources.UsedNick}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" Foreground="Red" Visibility="Hidden"/>
+            <Label Grid.Row="3" Content="{Binding Source={x:Static resx:Resources.ChangeConfirmation}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="13" Foreground="Green" Visibility="Hidden"/>
+            <Button Grid.Row="4" Content="{Binding Source={x:Static resx:Resources.Change}}" Margin="0, 10, 5, 0" Background="#66FF66" Foreground="White" FontFamily="Comic Sans MS" FontSize="20" Command="{Binding ChangeData}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -78,11 +80,11 @@
                 <RowDefinition Height="0.4*"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="0" BorderThickness="0" Background="#F4D35E"/>
-            <Label Grid.Row="0" Content="FAVOURITES" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
-            <ListView Grid.Row="1" Grid.RowSpan="2">
+            <Label Grid.Row="0" Content="{Binding Source={x:Static resx:Resources.Favorite}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
+            <ListView Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding Path=Items, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding Path=Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 
             </ListView>
-            <Button Grid.Row="4" Content="DELETE" Margin="0, 10, 5, 0" Background="#66FF66" Foreground="White" FontFamily="Comic Sans MS" FontSize="20" Command="{Binding ChangeViewToCocktail}">
+            <Button Grid.Row="4" Content="{Binding Source={x:Static resx:Resources.DeleteFavorite}}" Margin="0, 10, 5, 0" Background="#66FF66" Foreground="White" FontFamily="Comic Sans MS" FontSize="20" Command="{Binding DeleteFavourite}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

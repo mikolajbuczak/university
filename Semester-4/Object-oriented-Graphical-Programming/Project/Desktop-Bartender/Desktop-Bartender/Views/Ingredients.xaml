@@ -2,7 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:command="http://www.galasoft.ch/mvvmlight"
+             xmlns:resx="clr-namespace:Desktop_Bartender.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="#CCFFFF"
              DataContext="{Binding IngredientsViewModel,Source={StaticResource Locator}}">
@@ -15,18 +18,17 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="4" Grid.Row="0" Background="CornflowerBlue">
+        <Grid Grid.ColumnSpan="3" Grid.Row="0" Background="CornflowerBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition/>
                 <ColumnDefinition  Width="0.2*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="username" Background="Transparent" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Command="{Binding ChangeViewToUser}"/>
-            <Label Grid.Column="1" Content="MAKE ME A COCKTAIL!" FontFamily="Comic Sans MS"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-            <Button Grid.Column="2" Content="LOGOUT" Background="Transparent" BorderThickness="0" FontFamily="Comic Sans MS"  FontSize="14" Foreground="White" Command="{Binding ChangeViewToLogin}"/>
+            <Button Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.User}}" Background="Transparent" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Command="{Binding ChangeViewToUser}"/>
+            <Label Grid.Column="1" Content="{Binding Source={x:Static resx:Resources.TitleBig}}" FontFamily="Comic Sans MS"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <Button Grid.Column="2" Content="{Binding Source={x:Static resx:Resources.Logout}}" Background="Transparent" BorderThickness="0" FontFamily="Comic Sans MS"  FontSize="14" Foreground="White" Command="{Binding ChangeViewToLogin}"/>
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="1" Margin="10">
@@ -35,9 +37,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Border BorderThickness="0" Grid.Row="0" Background="#EBEBD3"/>
-            <Label Grid.Row="0" Content="CATEGORY" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS" FontSize="20"/>
-            <ListView Grid.Row="1">
-
+            <Label Grid.Row="0" Content="{Binding Source={x:Static resx:Resources.Category}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS" FontSize="20"/>
+            <ListView ItemsSource="{Binding Path=Categories}" SelectedItem="{Binding Path=Category}" Grid.Row="1">
+                <ListView.InputBindings>
+                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ClickCategories}"/>
+                </ListView.InputBindings>
             </ListView>
         </Grid>
 
@@ -46,26 +50,16 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border Grid.Row="0" BorderThickness="0" Background="#F4D35E"/>
-            <Label Grid.Row="0" Content="TYPE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
-            <ListView Grid.Row="1">
-
+            <Border BorderThickness="0" Grid.Row="0" Background="#EE964B"/>
+            <Label Grid.Row="0" Content="{Binding Source={x:Static resx:Resources.Ingredients}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
+            <ListView ItemsSource="{Binding Path=Ingredients}" Grid.Row="1">
+                <ListView.InputBindings>
+                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ClickIngredients}"/>
+                </ListView.InputBindings>
             </ListView>
         </Grid>
 
         <Grid Grid.Column="2" Grid.Row="1" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Border BorderThickness="0" Grid.Row="0" Background="#EE964B"/>
-            <Label Grid.Row="0" Content="INGREDIENT"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
-            <ListView Grid.Row="1">
-
-            </ListView>
-        </Grid>
-
-        <Grid Grid.Column="3" Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
@@ -78,12 +72,12 @@
 
 
             <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0" Background="#F95738"/>
-            <Label Grid.Row="0" Grid.ColumnSpan="2" Content="YOUR LIST"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
-            <ListView Grid.Row="1"  Grid.ColumnSpan="2">
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Content="{Binding Source={x:Static resx:Resources.yourList}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
+            <ListView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding Path=Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 
             </ListView>
 
-            <Button Grid.Row="2" Grid.Column="0" Content="CREATE" Margin="0, 10, 5, 0" Background="#66FF66" Foreground="White" FontFamily="Comic Sans MS" FontSize="20" Command="{Binding ChangeViewToCocktailList}">
+            <Button Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.Create}}" Margin="0, 10, 5, 0" Background="#66FF66" Foreground="White" FontFamily="Comic Sans MS" FontSize="20" Command="{Binding ChangeViewToCocktailList}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -91,7 +85,7 @@
                 </Button.Resources>
             </Button>
 
-            <Button Grid.Row="2" Grid.Column="1" Content="&#x0425;" Margin="5, 10, 0, 0" Background="#FF3333" FontFamily="Comic Sans MS" FontSize="20">
+            <Button Grid.Row="2" Grid.Column="1" Content="{Binding Source={x:Static resx:Resources.Delete}}" Margin="5, 10, 0, 0" Background="#FF3333" FontFamily="Comic Sans MS" FontSize="20" Command="{Binding DeleteIngredient}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
