@@ -9,10 +9,12 @@
     using Renci.SshNet.Messages;
     using System.Windows;
     using GalaSoft.MvvmLight.Messaging;
+    using Desktop_Bartender.DAL.Entity;
 
     class IngredientsViewModel : ViewModelBase
     {
         private IFrameNavigationService _navigationService;
+        public ObservableCollection<string> list = new ObservableCollection<string>();
         public static bool FromIngredients;
         public static string DrinkToCoctail;
 
@@ -137,7 +139,7 @@
                     _clickCategories = new RelayCommand(
                         arg =>
                         {
-                            Ingredients = model.FindIngredients(Category);
+                            Ingredients = model.FindIngredients(Category);                       
                         },
                         arg => true);
                 }
@@ -167,7 +169,7 @@
                     _clickIngredients = new RelayCommand(
                         arg =>
                         {
-                            if(!Items.Contains(Ingredient) || Items.Count > 10)
+                            if(!Items.Contains(Ingredient))
                                 Items.Add(Ingredient);
                         },
                         arg => true);

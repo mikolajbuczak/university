@@ -37,7 +37,7 @@
             </Grid.RowDefinitions>
             <Border Grid.Row="0" BorderThickness="0" Background="#FDD037"/>
             <Label Grid.Row="0" Content="{Binding Source={x:Static resx:Resources.Favorite}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
-            <ListView Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding Path=Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListView Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding Path=Index, UpdateSourceTrigger=PropertyChanged}">
               <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                   <i:InvokeCommandAction Command="{Binding ClickFav}"/>

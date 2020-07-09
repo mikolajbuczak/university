@@ -32,7 +32,7 @@
             bool state = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                MySqlCommand command = new MySqlCommand($"{ADD_FAVORITE} {favorite.ToDelete(favorite.Id_Drink)}", connection);
+                MySqlCommand command = new MySqlCommand($"{ADD_FAVORITE} {favorite.ToInsert()}", connection);
                 connection.Open();
                 var id = command.ExecuteNonQuery();
                 state = true;

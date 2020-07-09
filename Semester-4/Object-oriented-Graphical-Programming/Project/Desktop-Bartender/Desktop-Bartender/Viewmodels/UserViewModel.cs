@@ -6,14 +6,15 @@
     using System.Collections.ObjectModel;
     using GalaSoft.MvvmLight.Messaging;
     using Desktop_Bartender.Models;
+    using System.Windows.Documents;
 
     class UserViewModel : ViewModelBase
     {
         private IFrameNavigationService _navigationService;
+        public static ObservableCollection<string> list = new ObservableCollection<string>();
 
         //Collection danych z listy:
         private ObservableCollection<string> items = new ObservableCollection<string>();
-        public static ObservableCollection<string> lista;
         public ObservableCollection<string> Items
         {
             get => items;
@@ -111,11 +112,12 @@
                     _clickFav = new RelayCommand(
                         arg =>
                         {
+                            IngredientsViewModel.FromIngredients = false;
                             _navigationService.NavigateTo("Cocktail");
                             IngredientsViewModel.DrinkToCoctail = Items[Index];
                             IngredientsViewModel.Send();
-                            IngredientsViewModel.FromIngredients = false;
                             Index = -1;
+                            Items = list;
                         },
                         arg => true);
                 }
@@ -136,6 +138,7 @@
             Messenger.Default.Register<bool>(this, this.Clear);
             name = LoginViewModel.username;
             Items = model.GetFavorite(name);
+            list = Items;
         }
 
         public void GetFav(string _name)
