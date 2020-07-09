@@ -1,0 +1,7 @@
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Graphipcs-and-Detectors\Graphipcs-and-Detectors\bin\Debug\Graphipcs-and-Detectors.exe.config
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Graphipcs-and-Detectors\Graphipcs-and-Detectors\bin\Debug\Graphipcs-and-Detectors.exe
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Graphipcs-and-Detectors\Graphipcs-and-Detectors\bin\Debug\Graphipcs-and-Detectors.pdb
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Graphipcs-and-Detectors\Graphipcs-and-Detectors\obj\Debug\Graphipcs-and-Detectors.csprojAssemblyReference.cache
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Graphipcs-and-Detectors\Graphipcs-and-Detectors\obj\Debug\Graphipcs-and-Detectors.csproj.CoreCompileInputs.cache
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Graphipcs-and-Detectors\Graphipcs-and-Detectors\obj\Debug\Graphipcs-and-Detectors.exe
+E:\GitHub\University\Semester-4\Artificial-Intelligence-Systems\Graphipcs-and-Detectors\Graphipcs-and-Detectors\obj\Debug\Graphipcs-and-Detectors.pdb
