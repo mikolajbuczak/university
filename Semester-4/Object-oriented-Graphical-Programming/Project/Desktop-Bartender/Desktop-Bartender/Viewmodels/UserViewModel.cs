@@ -4,35 +4,16 @@
     using System.Windows.Input;
     using BaseViewModel;
     using System.Collections.ObjectModel;
+    using GalaSoft.MvvmLight.Messaging;
+    using Desktop_Bartender.Models;
+
     class UserViewModel : ViewModelBase
     {
         private IFrameNavigationService _navigationService;
 
-        private string login = null;
-
-        public string Login
-        {
-            get => login;
-            set
-            {
-                login = value;
-                OnPropertyChanged(nameof(Login));
-            }
-        }
-
-        private string password = null;
-
-        public string Password
-        {
-            get => password;
-            set
-            {
-                password = value;
-                OnPropertyChanged(nameof(Password));
-            }
-        }
-
+        //Collection danych z listy:
         private ObservableCollection<string> items = new ObservableCollection<string>();
+        public static ObservableCollection<string> lista;
         public ObservableCollection<string> Items
         {
             get => items;
@@ -43,6 +24,7 @@
             }
         }
 
+        //Zmienna z indeksem zaznaczonego przedmitu z listy:
         private int index = -1;
         public int Index
         {
@@ -54,6 +36,7 @@
             }
         }
 
+        //Komenda powrotu:
         private ICommand _ingredientsCommand;
 
         public ICommand ChangeViewToIngredients
@@ -73,6 +56,7 @@
             }
         }
 
+        //Komenda usunięcia zaznaczonego drinka:
         private ICommand _deleteFavourite;
 
         public ICommand DeleteFavourite
@@ -84,6 +68,8 @@
                     _deleteFavourite = new RelayCommand(
                         arg =>
                         {
+                            model.DeleteFavorite(model.FindUserID(LoginViewModel.username), model.FindDrinkID(Items[Index]));
+                            model.Update();
                             Items.RemoveAt(Index);
                             Index = -1;
                         },
@@ -92,6 +78,8 @@
                 return _deleteFavourite;
             }
         }
+
+        //Komenda wylogowania:
         private ICommand _loginCommand;
         public ICommand Logout
         {
@@ -103,6 +91,8 @@
                         arg =>
                         {
                             _navigationService.NavigateTo("Login");
+                            Clear(true);
+                            Messenger.Default.Send(true);
                         },
                         arg => true);
                 }
@@ -110,27 +100,54 @@
             }
         }
 
-        private ICommand _changeCommand;
-        public ICommand ChangeData
+        //Komenda kliknięcia w wybrany przedmiot z listy drinków:
+        private ICommand _clickFav = null;
+        public ICommand ClickFav
         {
             get
             {
-                if (_changeCommand == null)
+                if (_clickFav == null)
                 {
-                    _changeCommand = new RelayCommand(
+                    _clickFav = new RelayCommand(
                         arg =>
                         {
-                            //Function
+                            _navigationService.NavigateTo("Cocktail");
+                            IngredientsViewModel.DrinkToCoctail = Items[Index];
+                            IngredientsViewModel.Send();
+                            IngredientsViewModel.FromIngredients = false;
+                            Index = -1;
                         },
-                        arg => !string.IsNullOrEmpty(Login) || (!string.IsNullOrEmpty(Password) && Password.Length > 5));
+                        arg => true);
                 }
-                return _changeCommand;
+                return _clickFav;
             }
         }
+
+        private string name;
+
+        private Model model = null;
+
+        //Konstruktor:
         public UserViewModel(IFrameNavigationService navigationService)
         {
+            model = Model.Instance;
             _navigationService = navigationService;
-            Items.Add("MuJ N4jL3pży K0kt4Jl");
+            Messenger.Default.Register<string>(this, this.GetFav);
+            Messenger.Default.Register<bool>(this, this.Clear);
+            name = LoginViewModel.username;
+            Items = model.GetFavorite(name);
+        }
+
+        public void GetFav(string _name)
+        {
+            name = _name;
+            Items = model.GetFavorite(name);
+        }
+
+        public void Clear(bool flag)
+        {
+            Items.Clear();
+            Index = -1;
         }
     }
 }

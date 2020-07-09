@@ -61,6 +61,15 @@ namespace Desktop_Bartender.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ADD TO FAVORITES.
+        /// </summary>
+        public static string AddFavorite {
+            get {
+                return ResourceManager.GetString("AddFavorite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu User already registered..
         /// </summary>
         public static string AlreadyRegistered {
@@ -75,6 +84,15 @@ namespace Desktop_Bartender.Properties {
         public static string Category {
             get {
                 return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Drink Type.
+        /// </summary>
+        public static string CategoryType {
+            get {
+                return ResourceManager.GetString("CategoryType", resourceCulture);
             }
         }
         
@@ -277,6 +295,15 @@ namespace Desktop_Bartender.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password must consist of at least 6 chars..
+        /// </summary>
+        public static string PasswordTooltip {
+            get {
+                return ResourceManager.GetString("PasswordTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu REGISTER.
         /// </summary>
         public static string RegisterButton {
@@ -367,7 +394,7 @@ namespace Desktop_Bartender.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu USER&apos;s PANEL.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu USER&apos;S PANEL.
         /// </summary>
         public static string UserPanel {
             get {

@@ -7,6 +7,8 @@
 
     class RepositoryRecipe
     {
+        //Klasa tworząca repozytorium encji z bazy danych
+
         #region QUERIES
         private const string ALL_RECIPES = "SELECT * FROM recipe";
         #endregion

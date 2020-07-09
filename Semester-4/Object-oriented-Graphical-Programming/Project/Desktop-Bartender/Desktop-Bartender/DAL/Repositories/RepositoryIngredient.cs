@@ -5,6 +5,8 @@
     using Entity;
     class RepositoryIngredient
     {
+        //Klasa tworząca repozytorium encji z bazy danych
+
         #region QUERIES
         private const string ALL_INGREDIENTS = "SELECT * FROM ingredient";
         #endregion

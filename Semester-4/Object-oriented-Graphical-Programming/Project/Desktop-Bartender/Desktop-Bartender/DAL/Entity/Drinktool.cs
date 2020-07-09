@@ -3,6 +3,8 @@
     using MySql.Data.MySqlClient;
     class Drinktool
     {
+        //Klasa tworząca obiekt encji z bazy danych
+
         #region Properties
         public short? Id_Drink { get; set; }
         public short? Id_Tool { get; set; }

@@ -9,6 +9,8 @@ namespace Desktop_Bartender.Viewmodels
     public class MainViewModel : ViewModelBase
     {
         private IFrameNavigationService _navigationService;
+
+        //Przejście do loginu:
         private RelayCommand _loadedCommand;
         public RelayCommand LoadedCommand
         {
@@ -23,6 +25,7 @@ namespace Desktop_Bartender.Viewmodels
             }
         }
 
+        //Konstruktor
         public MainViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;

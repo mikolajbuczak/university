@@ -3,6 +3,8 @@ namespace Desktop_Bartender.DAL.Entity
     using MySql.Data.MySqlClient;
     class Drink
     {
+        //Klasa tworz¹ca obiekt encji z bazy danych
+
         #region Properties
         public short? ID { get; set; }
         public string Name { get; set; }
@@ -54,8 +56,8 @@ namespace Desktop_Bartender.DAL.Entity
         #region Methods
         public override string ToString()
         {
-            return $"{Name} \n Glass: {Glass_type} \n Time: {Prepare_time} \n Temperauture: {Temperature} \n " +
-                $"Taste: {Taste} \n Strength: {Strength} \n {Instruction}";
+            return $"{Instruction} \n\n Glass: {Glass_type} \n Time: {Prepare_time} min \n Temperature: {Temperature} \n " +
+                $"Taste: {Taste} \n Strength: {Strength} \n";
         }
 
         public string ToInsert()

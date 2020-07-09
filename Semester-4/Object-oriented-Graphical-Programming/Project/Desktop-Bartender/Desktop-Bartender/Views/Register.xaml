@@ -36,7 +36,7 @@
         <RowDefinition/>
       </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Content="{Binding Path=Error}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Red"/>
+            <Label Grid.Row="0" Content="{Binding Path=Error}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="Gray"/>
             <Grid Grid.Row="1" Margin="5, 0">
         <Grid.ColumnDefinitions>
           <ColumnDefinition/>
@@ -52,7 +52,9 @@
           <ColumnDefinition Width="1.6*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.Password}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18"/>
-        <PasswordBox Name="Pass" helpers:PasswordBoxAssistant.BindPassword="True" helpers:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,10,0" PasswordChar="&#x2022;"/>
+        <Border  Grid.Column="1" ToolTip="{Binding Source={x:Static resx:Resources.PasswordTooltip}}">
+          <PasswordBox Name="Pass" helpers:PasswordBoxAssistant.BindPassword="True" helpers:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,10,0" PasswordChar="&#x2022;"/>
+        </Border>
       </Grid>
 
       <Grid Grid.Row="5" Margin="5, 0">

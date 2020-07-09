@@ -7,49 +7,64 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="520"
              DataContext="{Binding CocktailViewModel,Source={StaticResource Locator}}">
-    
+
     <Grid Grid.Column="1" Margin="10">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="40"/>
-      <RowDefinition/>
-    </Grid.RowDefinitions>
-    <Border Grid.Row="0" BorderThickness="0" Background="#EE964B"/>
-    <Label Grid.Row="0" Content="{Binding Source={x:Static resx:Resources.CocktailName}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
-    <Grid Grid.Row="1">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="1.2*"/>
-        <ColumnDefinition Width="0.8*"/>
-      </Grid.ColumnDefinitions>
-      <Grid Grid.Column="1">
         <Grid.RowDefinitions>
-          <RowDefinition Height="10"/>
-          <RowDefinition Height="30"/>
-          <RowDefinition Height="1.3*"/>
-          <RowDefinition Height="30"/>
-          <RowDefinition Height="0.7*"/>
-          <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="1" BorderThickness="0" Background="#EBEBD3"/>
-        <Border Grid.Row="1" Grid.RowSpan="2" BorderThickness="1" BorderBrush="Black"/>
-        <Label Grid.Row="1" Content="{Binding Source={x:Static resx:Resources.Ingredients}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="14"/>
-        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility ="Disabled" Margin="1,0,1,0">
-          <ListView BorderThickness="0"/>
-        </ScrollViewer>
-        <Border Grid.Row="3" BorderThickness="0" Background="#EBEBD3"/>
-        <Label Grid.Row="3" Content="{Binding Source={x:Static resx:Resources.Tools}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="14"/>
-        <Border Grid.Row="3" Grid.RowSpan="2" BorderThickness="1" BorderBrush="Black"/>
-        <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility ="Disabled" Margin="1,0,1,1">
-          <ListView BorderThickness="0"/>
-        </ScrollViewer>
-                <Button Grid.Column="1" Grid.Row="7" Content="{Binding Source={x:Static resx:Resources.GoBackBig}}" Background="Green" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Margin="0,2,0,2" Command="{Binding GoBack}">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Border Grid.Row="0" BorderThickness="0" Background="#EBEBD3"/>
+        <Label Grid.Row="0" Content="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="20"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="101*"/>
+                <ColumnDefinition Width="199*"/>
+                <ColumnDefinition Width="200*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="1.3*"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="1" BorderThickness="0" Background="#EBEBD3"/>
+                <Border Grid.Row="1" Grid.RowSpan="2" BorderThickness="1" BorderBrush="Black"/>
+                <Label Grid.Row="1" Content="{Binding Source={x:Static resx:Resources.Ingredients}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="14"/>
+                <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility ="Disabled" Margin="1,0,1,0">
+                    <ListView BorderThickness="0" ItemsSource="{Binding Path=Ingredients, UpdateSourceTrigger=PropertyChanged}"/>
+                </ScrollViewer>
+                <Border Grid.Row="3" BorderThickness="0" Background="#EBEBD3"/>
+                <Label Grid.Row="3" Content="{Binding Source={x:Static resx:Resources.Tools}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Comic Sans MS"  FontSize="14"/>
+                <Border Grid.Row="3" Grid.RowSpan="2" BorderThickness="1" BorderBrush="Black"/>
+                <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility ="Disabled" Margin="1,0,1,1">
+                    <ListView BorderThickness="0" ItemsSource="{Binding Path=Tools, UpdateSourceTrigger=PropertyChanged}"/>
+                </ScrollViewer>
+                <Grid Grid.Column="1" Grid.Row="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="{Binding Source={x:Static resx:Resources.GoBackBig}}" Background="Green" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Margin="5" Command="{Binding GoBack}">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Grid.Column="1" Content="{Binding Source={x:Static resx:Resources.AddFavorite}}" Background="Green" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="14" Foreground="White" Margin="5" Command="{Binding AddFavorite}">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+
+            </Grid>
+            <TextBlock Grid.Column="0" Margin="5,5,5,5" Text="{Binding Path=Instruction}" FontFamily="Comic Sans MS" Grid.ColumnSpan="2" />
+        </Grid>
     </Grid>
-    <TextBlock Grid.Column="0" Margin="5,5,5,5" Text="TUTAJ BĘDZIE RECIPEEEEEE" FontFamily="Comic Sans MS" />
-    </Grid>
-  </Grid>
 </UserControl>

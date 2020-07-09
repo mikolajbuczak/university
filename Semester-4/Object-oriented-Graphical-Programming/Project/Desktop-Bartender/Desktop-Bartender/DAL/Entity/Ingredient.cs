@@ -3,6 +3,8 @@
     using MySql.Data.MySqlClient;
     class Ingredient
     {
+        //Klasa tworząca obiekt encji z bazy danych
+
         #region Properties
         public short? Id { get; set; }
         public string Name { get; set; }

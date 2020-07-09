@@ -9,6 +9,7 @@ namespace Desktop_Bartender.Viewmodels
     {
         static ViewModelLocator()
         {
+            //Przypisanie wszystkich widoków:
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginViewModel>();
@@ -16,11 +17,11 @@ namespace Desktop_Bartender.Viewmodels
             SimpleIoc.Default.Register<ForgotPasswordViewModel>();
             SimpleIoc.Default.Register<IngredientsViewModel>();
             SimpleIoc.Default.Register<UserViewModel>();
-            SimpleIoc.Default.Register<CocktailListViewModel>();
             SimpleIoc.Default.Register<CocktailViewModel>();
             SetupNavigation();
         }
 
+        //Ustawienie nazw pod jakimi dostępne będą widoki:
         private static void SetupNavigation()
         {
             var navigationService = new FrameNavigationService();
@@ -29,7 +30,6 @@ namespace Desktop_Bartender.Viewmodels
             navigationService.Configure("ForgotPassword", new Uri("../Views/ForgotPassword.xaml", UriKind.Relative));
             navigationService.Configure("Ingredients", new Uri("../Views/Ingredients.xaml", UriKind.Relative));
             navigationService.Configure("User", new Uri("../Views/User.xaml", UriKind.Relative));
-            navigationService.Configure("CocktailList", new Uri("../Views/CocktailList.xaml", UriKind.Relative));
             navigationService.Configure("Cocktail", new Uri("../Views/Cocktail.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
@@ -73,13 +73,6 @@ namespace Desktop_Bartender.Viewmodels
             get
             {
                 return ServiceLocator.Current.GetInstance<UserViewModel>();
-            }
-        }
-        public CocktailListViewModel CocktailListViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<CocktailListViewModel>();
             }
         }
         public CocktailViewModel CocktailViewModel

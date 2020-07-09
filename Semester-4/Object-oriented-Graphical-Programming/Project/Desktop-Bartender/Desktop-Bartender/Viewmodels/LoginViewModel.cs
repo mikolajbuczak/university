@@ -9,7 +9,10 @@
 
     class LoginViewModel : BaseViewModel.ViewModelBase
     {
+        public static string username;
         private IFrameNavigationService _navigationService;
+
+        //Zmienna zawierająca komunikat o błędzie w logowaniu:
         private string errorMessage;
         public string ErrorMessage
         {
@@ -21,6 +24,7 @@
             }
         }
 
+        //Zmmienna zawierająca wpisane dane w polu login:
         private string login = null;
 
         public string Login
@@ -33,6 +37,7 @@
             }
         }
 
+        //Zmmienna zawierająca wpisane dane w polu hasło:
         private string password = null;
 
         public string Password
@@ -45,6 +50,7 @@
             }
         }
 
+        //Zmiana widoku do rejestracji:
         private ICommand _registerCommand;
 
         public ICommand ChangeViewToRegister
@@ -67,6 +73,7 @@
             }
         }
 
+        //Przejście do przypomnienia hasła:
         private ICommand _forgotPassword;
 
         public ICommand ChangeViewToForgotPassword
@@ -89,6 +96,7 @@
             }
         }
 
+        //Zmiana widoku do IngredientsView:
         private ICommand _ingredientsCommand;
         public ICommand ChangeViewToIngredients
         {
@@ -102,6 +110,8 @@
                             if(model.MatchData(Login, Password))
                             {
                                 _navigationService.NavigateTo("Ingredients");
+                                username = Login;
+                                Messenger.Default.Send(username);
                                 Login = Desktop_Bartender.Properties.Resources.Empty;
                                 Password = Desktop_Bartender.Properties.Resources.Empty;
                                 ErrorMessage = Desktop_Bartender.Properties.Resources.Empty;
@@ -121,6 +131,7 @@
 
         private Model model = null;
 
+        //Konstruktor:
         public LoginViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;

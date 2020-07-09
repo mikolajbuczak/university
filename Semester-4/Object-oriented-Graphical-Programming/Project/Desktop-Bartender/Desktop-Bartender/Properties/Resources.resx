@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddFavorite" xml:space="preserve">
+    <value>ADD TO FAVORITES</value>
+  </data>
   <data name="AlreadyRegistered" xml:space="preserve">
     <value>User already registered.</value>
   </data>
   <data name="Category" xml:space="preserve">
     <value>CATEGORY</value>
+  </data>
+  <data name="CategoryType" xml:space="preserve">
+    <value>Drink Type</value>
   </data>
   <data name="Change" xml:space="preserve">
     <value>CHANGE</value>
@@ -189,6 +195,9 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PasswordTooltip" xml:space="preserve">
+    <value>Password must consist of at least 6 chars.</value>
+  </data>
   <data name="RegisterButton" xml:space="preserve">
     <value>REGISTER</value>
   </data>
@@ -220,7 +229,7 @@
     <value>PROFILE</value>
   </data>
   <data name="UserPanel" xml:space="preserve">
-    <value>USER's PANEL</value>
+    <value>USER'S PANEL</value>
   </data>
   <data name="YourDrinks" xml:space="preserve">
     <value>YOUR DRINKS</value>

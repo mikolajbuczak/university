@@ -8,6 +8,7 @@
     {
         private IFrameNavigationService _navigationService;
 
+        //Zmienna z komunikatem o błędzie użytkownika:
         private string error = null;
         public string Error
         {
@@ -19,6 +20,7 @@
             }
         }
 
+        //Zmienna z danymi wpisanymi w polu login:
         private string login = string.Empty;
         public string Login
         {
@@ -30,6 +32,7 @@
             }
         }
 
+        //Zmienna z danymi wpisanymi w polu hasło:
         private string password = string.Empty;
         public string Password
         {
@@ -41,6 +44,7 @@
             }
         }
 
+        //Zmienna z danymi wpisanymi w polu potwierdź hasło:
         private string confirmPassword = string.Empty;
         public string ConfirmPassword
         {
@@ -52,6 +56,7 @@
             }
         }
 
+        //Komenda rejestracji, aktualizacja bazy:
         private ICommand _register;
         public ICommand Register
         {
@@ -95,6 +100,7 @@
             }
         }
 
+        //Komenda powrotu:
         private ICommand _goBack;
         public ICommand GoBack
         {
@@ -119,6 +125,7 @@
 
         private Model model = null;
 
+        //Konstruktor:
         public RegisterViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;

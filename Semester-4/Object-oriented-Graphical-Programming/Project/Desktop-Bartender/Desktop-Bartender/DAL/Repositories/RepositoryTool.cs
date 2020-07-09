@@ -5,6 +5,8 @@
     using Entity;
     class RepositoryTool
     {
+        //Klasa tworząca repozytorium encji z bazy danych
+
         #region QUERIES
         private const string ALL_TOOLS = "SELECT * FROM tool";
         #endregion

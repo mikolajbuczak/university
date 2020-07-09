@@ -3,6 +3,8 @@
     using MySql.Data.MySqlClient;
     class User
     {
+        //Klasa tworząca obiekt encji z bazy danych
+
         #region Properties
         public short? ID { get; set; }
         public string Login { get; set; }

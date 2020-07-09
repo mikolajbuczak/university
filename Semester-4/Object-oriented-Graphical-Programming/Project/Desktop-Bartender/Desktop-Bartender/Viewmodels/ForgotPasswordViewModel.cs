@@ -9,6 +9,7 @@
     {
         private IFrameNavigationService _navigationService;
 
+        //String zawierający przypomniane hasło:
         private string forgottenPassword = null;
         public string ForgottenPassword
         {
@@ -20,6 +21,7 @@
             }
         }
 
+        //Zmienna zawierająca informację o błędzie użytkownika:
         private string error = null;
         public string Error
         {
@@ -31,6 +33,7 @@
             }
         }
 
+        //String zawierający wpisane dane w polu Login:
         private string login = null;
 
         public string Login
@@ -43,6 +46,7 @@
             }
         }
 
+        //Przypomnienie hasła:
         private ICommand _remindPassword;
 
         public ICommand RemindPassword
@@ -71,6 +75,8 @@
                 return _remindPassword;
             }
         }
+
+        //Komenda powrótu do LoginView:
         private ICommand _returnCOmmand;
 
         public ICommand ChangeViewToLogin
@@ -95,6 +101,7 @@
 
         private Model model = null;
 
+        //Konstruktor:
         public ForgotPasswordViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;

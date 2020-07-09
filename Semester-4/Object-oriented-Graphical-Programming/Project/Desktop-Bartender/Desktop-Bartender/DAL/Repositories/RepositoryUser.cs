@@ -5,6 +5,9 @@
     using Entity;
     class RepositoryUser
     {
+        //Klasa tworząca repozytorium encji z bazy danych
+
+        //Zapytania do bazy:
         #region QUERIES
         private const string ALL_USERS = "SELECT * FROM users";
         private const string ADD_USER = "INSERT INTO `users`(`Login`, `Password`) VALUES ";
